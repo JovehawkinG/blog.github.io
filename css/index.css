@@ -6582,43 +6582,43 @@ blockquote.pullquote.right {
 /* 字体引入 */
 @font-face {
   font-family: YSHST;
-  src: url(https://data-static.netdun.net/JovehawkinG/fonts/优设好身体.woff2);
+  src: url(https://data-static.netdun.net/fomalhaut/fonts/优设好身体.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: MiSans;
-  src: url(https://data-static.netdun.net/JovehawkinG/fonts/MiSans.woff2);
+  src: url(https://data-static.netdun.net/fomalhaut/fonts/MiSans.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: HYTMR;
-  src: url(https://data-static.netdun.net/JovehawkinG/fonts/HYTangMeiRen55W.woff2);
+  src: url(https://data-static.netdun.net/fomalhaut/fonts/HYTangMeiRen55W.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: LXGW;
-  src: url(https://data-static.netdun.net/JovehawkinG/fonts/霞鹜文楷.woff2);
+  src: url(https://data-static.netdun.net/fomalhaut/fonts/霞鹜文楷.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: TTQHB;
-  src: url(https://data-static.netdun.net/JovehawkinG/fonts/甜甜圈海报字体.woff2);
+  src: url(https://data-static.netdun.net/fomalhaut/fonts/甜甜圈海报字体.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: Consolas_1;
-  src: url(https://data-static.netdun.net/JovehawkinG/fonts/Consolas.woff2);
+  src: url(https://data-static.netdun.net/fomalhaut/fonts/Consolas.woff2);
   font-display: swap;
 }
 
 @font-face {
   font-family: ZhuZiAWan;
-  src: url(https://data-static.netdun.net/JovehawkinG/fonts/ZhuZiAWan2.woff2);
+  src: url(https://data-static.netdun.net/fomalhaut/fonts/ZhuZiAWan2.woff2);
   font-display: swap;
 }
 
@@ -7701,7 +7701,7 @@ button#go-up:hover #percent {
 
 /* 个人信息卡片背景图 */
 [data-theme="light"] #aside-content > .card-widget.card-info {
-  background-image: url(https://tuchuang.voooe.cn/images/2023/02/28/springBg.png);
+  background-image: url(https://tuchuang.voooe.cn/images/2023/02/28/aurora.webp);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
