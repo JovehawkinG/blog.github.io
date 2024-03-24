@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.fun/box/animation/index.html</loc>
+    <loc>https://jovehawking.fun/categories/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.fun/categories/index.html</loc>
+    <loc>https://jovehawking.fun/box/animation/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -66,6 +66,15 @@
   
   <url>
     <loc>https://jovehawking.fun/box/gallery/index.html</loc>
+    
+    <lastmod>2023-03-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jovehawking.fun/box/nav/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -92,15 +101,6 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.fun/personal/love/index.html</loc>
-    
-    <lastmod>2023-03-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://jovehawking.fun/site/census/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
@@ -110,7 +110,16 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.fun/box/nav/index.html</loc>
+    <loc>https://jovehawking.fun/personal/love/index.html</loc>
+    
+    <lastmod>2023-03-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jovehawking.fun/site/time/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -129,15 +138,6 @@
   
   <url>
     <loc>https://jovehawking.fun/personal/bb/index.html</loc>
-    
-    <lastmod>2023-03-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jovehawking.fun/site/time/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     

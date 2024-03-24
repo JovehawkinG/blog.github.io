@@ -6582,45 +6582,81 @@ blockquote.pullquote.right {
 /* 字体引入 */
 @font-face {
   font-family: YSHST;
-  src: url(https://data-static.netdun.net/fomalhaut/fonts/优设好身体.woff2);
+  src: url(../typeface/优设好身体.ttf);
   font-display: swap;
 }
 
 @font-face {
   font-family: MiSans;
-  src: url(https://data-static.netdun.net/fomalhaut/fonts/MiSans.woff2);
+  src: url(../typeface/小米兰亭.ttf);
   font-display: swap;
 }
 
 @font-face {
   font-family: HYTMR;
-  src: url(https://data-static.netdun.net/fomalhaut/fonts/HYTangMeiRen55W.woff2);
+  src: url(../typeface/汉仪唐美人.ttf);
   font-display: swap;
 }
 
 @font-face {
   font-family: LXGW;
-  src: url(https://data-static.netdun.net/fomalhaut/fonts/霞鹜文楷.woff2);
+  src: url(../typeface/LXGWWenKaiMono-Regular.ttf);
   font-display: swap;
 }
 
 @font-face {
   font-family: TTQHB;
-  src: url(https://data-static.netdun.net/fomalhaut/fonts/甜甜圈海报字体.woff2);
+  src: url(../typeface/汉仪笔染甜甜圈.ttf);
   font-display: swap;
 }
 
 @font-face {
   font-family: Consolas_1;
-  src: url(https://data-static.netdun.net/fomalhaut/fonts/Consolas.woff2);
+  src: url(../typeface/consola.ttf);
   font-display: swap;
 }
 
 @font-face {
   font-family: ZhuZiAWan;
-  src: url(https://data-static.netdun.net/fomalhaut/fonts/ZhuZiAWan2.woff2);
+  src: url(../typeface/ZhuZiAWan-2.ttc);
   font-display: swap;
 }
+
+/*@font-face {*/
+/*  font-family: MiSans;*/
+/*  src: url(https://data-static.netdun.net/fomalhaut/fonts/MiSans.woff2);*/
+/*  font-display: swap;*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: HYTMR;*/
+/*  src: url(https://data-static.netdun.net/fomalhaut/fonts/HYTangMeiRen55W.woff2);*/
+/*  font-display: swap;*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: LXGW;*/
+/*  src: url(https://data-static.netdun.net/fomalhaut/fonts/霞鹜文楷.woff2);*/
+/*  font-display: swap;*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: TTQHB;*/
+/*  src: url(https://data-static.netdun.net/fomalhaut/fonts/甜甜圈海报字体.woff2);*/
+/*  font-display: swap;*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: Consolas_1;*/
+/*  src: url(https://data-static.netdun.net/fomalhaut/fonts/Consolas.woff2);*/
+/*  font-display: swap;*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: ZhuZiAWan;*/
+/*  src: url(https://data-static.netdun.net/fomalhaut/fonts/ZhuZiAWan2.woff2);*/
+/*  font-display: swap;*/
+/*}*/
 
 /* 特定部件字体调用 */
 div#menus {
