@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/posts/71ac037e.html</loc>
+    <loc>https://jovehawking.fun/posts/71ac037e.html</loc>
     
     <lastmod>2024-03-23</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/life/movies/index.html</loc>
+    <loc>https://jovehawking.fun/life/movies/index.html</loc>
     
     <lastmod>2024-03-22</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/social/link/index.html</loc>
+    <loc>https://jovehawking.fun/social/link/index.html</loc>
     
     <lastmod>2024-03-22</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/life/music/index.html</loc>
+    <loc>https://jovehawking.fun/life/music/index.html</loc>
     
     <lastmod>2024-03-22</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/categories/index.html</loc>
+    <loc>https://jovehawking.fun/tags/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/tags/index.html</loc>
+    <loc>https://jovehawking.fun/categories/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -56,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/box/gallery/index.html</loc>
+    <loc>https://jovehawking.fun/box/gallery/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/box/animation/index.html</loc>
+    <loc>https://jovehawking.fun/life/games/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -74,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/box/nav/index.html</loc>
+    <loc>https://jovehawking.fun/box/animation/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -83,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/life/games/index.html</loc>
+    <loc>https://jovehawking.fun/box/nav/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -92,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/site/census/index.html</loc>
+    <loc>https://jovehawking.fun/personal/bb/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -101,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/personal/about/index.html</loc>
+    <loc>https://jovehawking.fun/personal/love/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -110,7 +110,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/personal/love/index.html</loc>
+    <loc>https://jovehawking.fun/social/fcircle/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -119,7 +119,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/social/fcircle/index.html</loc>
+    <loc>https://jovehawking.fun/personal/about/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/site/time/index.html</loc>
+    <loc>https://jovehawking.fun/site/time/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/personal/bb/index.html</loc>
+    <loc>https://jovehawking.fun/site/census/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/site/echarts/index.html</loc>
+    <loc>https://jovehawking.fun/site/echarts/index.html</loc>
     
     <lastmod>2022-09-10</lastmod>
     
@@ -156,23 +156,23 @@
   
 
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io</loc>
-    <lastmod>2024-03-23</lastmod>
+    <loc>https://jovehawking.fun/</loc>
+    <lastmod>2024-03-24</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/tags/JVM/</loc>
-    <lastmod>2024-03-23</lastmod>
+    <loc>https://jovehawking.fun/tags/JVM/</loc>
+    <lastmod>2024-03-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2024-03-23</lastmod>
+    <loc>https://jovehawking.fun/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
+    <lastmod>2024-03-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -180,8 +180,8 @@
 
   
   <url>
-    <loc>https://jovehawking.github.io/blog.github.io/categories/JVM%E7%9B%B8%E5%85%B3/</loc>
-    <lastmod>2024-03-23</lastmod>
+    <loc>https://jovehawking.fun/categories/JVM%E7%9B%B8%E5%85%B3/</loc>
+    <lastmod>2024-03-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
