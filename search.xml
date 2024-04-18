@@ -4,6 +4,60 @@
   
     
     <entry>
+      <title>软考-3.2关系代数-函数依赖-范式</title>
+      <link href="/posts/108d9810.html"/>
+      <url>/posts/108d9810.html</url>
+      
+        <content type="html"><![CDATA[<h1>前言</h1><p>内容：</p><ul><li>关系代数</li><li>函数依赖</li><li>键与约束</li><li>范式</li></ul><h1>中论</h1><h2 id="关系代数">关系代数</h2><p>并(∪)：两张表中所有记录数合并，<strong>相同记录只显示一次</strong></p><p>交(∩)：两张表中相同的记录数</p><p>差(S1-S2)：s1表中有但s2表中没有的记录</p><p>笛卡尔积(S1×S2)：S1中每条记录依次和S2中的所有记录组合成一条记录，最终形成一张S1+S2个属性列，S1*S2个记录数</p><p>投影(π)：根据条件选择某关系模式中的<strong>某列</strong></p><p>选择(σ)：根据条件选择某关系模式中的<strong>某条记录</strong></p><p>自然连接：显示两表全部的属性列，相同属性列只显示一次；显示属性相同且值相同的记录。</p><h2 id="函数依赖">函数依赖</h2><p>给定一个X，能唯一确定一个Y，则称X确定Y；或者Y依赖于X。</p><ul><li>部分函数依赖：A确定C，(A,B)也能确定C，则称部分函数依赖。(A,B)的一部分能确定C</li><li>传递函数依赖：<strong>A和B不等价时</strong>，A可以确定B，B确定C，则A确定C，则成为传递函数依赖。</li></ul><h2 id="键与约束">键与约束</h2><p>超键：能唯一标识此表属性的<strong>组合</strong></p><p>候选键：超键中去掉冗余的属性，剩余的属性就是候选键</p><p>主键：任选一个候选键，即可作为主键</p><p>外键：其他表中的主键</p><p>主属性（码）：候选键内的属性为主属性，其他属性为非主属性</p><blockquote><p>实体完整性约束：主键约束。主键值不能为空，也不能重复</p><p>参照完整性约束：外键约束。外键必须是其他表中已经存在的主键的值或者空。</p><p>用户自定义完整性约束：自定义表达式约束</p></blockquote><h2 id="范式">范式</h2><h3 id="第一范式（1NF）"><strong>第一范式（1NF）</strong></h3><p>关系中的每一个分量必须是一个不可分的数据项。<strong>即表中不允许有更小的表。</strong></p><h3 id="第二范式（2NF）"><strong>第二范式（2NF）</strong></h3><p>如果关系R属于1NF，且每一个非主属性完全函数依赖于任何一个候选码，则R属于2NF。<strong>即表中每一个非主属性不会依赖复合主键中的某一列。</strong></p><h3 id="第三范式（3NF）"><strong>第三范式（3NF）</strong></h3><p>在满足1NF的基础上，表中不存在非主属性对主属性的传递依赖。</p><h3 id="BC范式（BCNF）">BC范式（BCNF）</h3><p>在第三范式的基础上，进一步消除主属性对码的部分函数依赖和传递依赖。即每个依赖的左边决定因素都必然包含候选键。</p><blockquote><p>2NF、3NF都是非主属性对主属性</p><p>BCNF是主属性对主属性</p></blockquote><h1>后记</h1><blockquote><p>不够真诚是危险的，太过真诚是致命的。</p><p>——————王尔德</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软考inG </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 软考 </tag>
+            
+            <tag> 文老师 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>算法-字符编码</title>
+      <link href="/posts/a68a97fd.html"/>
+      <url>/posts/a68a97fd.html</url>
+      
+        <content type="html"><![CDATA[<h1 id="字符编码"><a href="#字符编码" class="headerlink" title="字符编码"></a>字符编码</h1><h2 id="ASCII码"><a href="#ASCII码" class="headerlink" title="ASCII码"></a>ASCII码</h2><p>使用 7 位二进制数（一个字节的低 7 位）表示一个字符，最多能够表示 128 个不同的字符。</p><blockquote><p>仅能够表示英文</p></blockquote><h2 id="GBK码"><a href="#GBK码" class="headerlink" title="GBK码"></a>GBK码</h2><p>GB2312字符集收录了汉字，GBK码是GB2313的拓展。</p><blockquote><p>在 GBK 的编码方案中，ASCII 字符使用一个字节表示，汉字使用两个字节表示。</p></blockquote><h2 id="Unicode码"><a href="#Unicode码" class="headerlink" title="Unicode码"></a>Unicode码</h2><p>国际标准字符集，它将世界各种语言的每个字符定义一个唯一的编码，以满足跨语言、跨平台的文本信息转换。</p><blockquote><p>每个字符都有一个独一无二的编码，也即每个字符都有一个二进制数值和它对应，这里的二进制数值也叫 <strong>码点</strong></p></blockquote><h2 id="UTF-8编码"><a href="#UTF-8编码" class="headerlink" title="UTF-8编码"></a>UTF-8编码</h2><p>一种可变长度的编码，使用1到4字节来表示一个字符，根据字符的复杂性而变。</p><ul><li><p>ASCII字符1字节</p></li><li><p>拉丁字母和希腊字母2字节</p></li><li><p>常用的中文字符3字节</p></li><li><p>其他的一些生僻字符4字节。</p></li></ul><blockquote><p>UTF-8编码是Unicode码的一种实现方式</p></blockquote><h2 id="UTF-16编码"><a href="#UTF-16编码" class="headerlink" title="UTF-16编码"></a>UTF-16编码</h2><p>使用2或4字节来表示一个字符。</p><h2 id="UTF-32编码"><a href="#UTF-32编码" class="headerlink" title="UTF-32编码"></a>UTF-32编码</h2><p>每个字符都使用4字节。。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法inG </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 字符编码 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>软考-3.1三级模式-数据库设计-数据模型</title>
       <link href="/posts/463edc9a.html"/>
       <url>/posts/463edc9a.html</url>
@@ -116,7 +170,7 @@
       <link href="/posts/6a270633.html"/>
       <url>/posts/6a270633.html</url>
       
-        <content type="html"><![CDATA[<h1>栈和队列</h1><h2 id="递归和迭代">递归和迭代</h2><p><strong>递归比迭代更加耗费内存空间</strong>，因为函数的上下文数据都存储在栈空间中，直到函数返回才被释放。</p><p><strong>递归比迭代更加耗费时间</strong>，因为递归调用函数会有额外的开销。</p><blockquote><p>如果函数递归调用为尾递归，则经过编译器、解释器优化可以在空间效率上和迭代差不多。</p><p><strong>尾递归</strong>：<code>return 递归函数</code>，即返回递归的函数。</p></blockquote>]]></content>
+        <content type="html"><![CDATA[<h1>算法复杂度</h1><h2 id="递归和迭代">递归和迭代</h2><p><strong>递归比迭代更加耗费内存空间</strong>，因为函数的上下文数据都存储在栈空间中，直到函数返回才被释放。</p><p><strong>递归比迭代更加耗费时间</strong>，因为递归调用函数会有额外的开销。</p><blockquote><p>如果函数递归调用为尾递归，则经过编译器、解释器优化可以在空间效率上和迭代差不多。</p><p><strong>尾递归</strong>：<code>return 递归函数</code>，即返回递归的函数。</p></blockquote><h2 id="复杂度简单判断">复杂度简单判断</h2><p><strong>O(1)</strong></p><p>运行时间/空间不随输入变化而变化。</p><p><strong>O(n)</strong></p><p>以线性级别增长。eg：单层循环，循环长度与输入数据有关。</p><p><strong>O(n²)</strong></p><p>以平方级别增长。eg：多层循环，循环长度与输入数据有关。</p><p><strong>O(2^n)</strong></p><p>以指数级别增长。eg：类似于&quot;细胞分裂&quot;，一个函数体内运行同样的两个函数（递归）。</p><p><strong>O(logN)</strong></p><p>以对数级别增长。eg：类似于&quot;每次循环缩减到上次的一半&quot;，分治。</p><p><strong>O(nlogN)</strong></p><p>以线性对数级别增长。eg：线性和指数级别的组合，快速排序、归并排序。</p><p><strong>O(n!)</strong></p><p>以阶乘级别增长。eg：全排列。</p>]]></content>
       
       
       <categories>
