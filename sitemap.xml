@@ -290,7 +290,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.fun/personal/love/index.html</loc>
+    <loc>https://jovehawking.fun/personal/bb/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -299,7 +299,7 @@
   </url>
   
   <url>
-    <loc>https://jovehawking.fun/personal/bb/index.html</loc>
+    <loc>https://jovehawking.fun/personal/love/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -317,20 +317,6 @@
 
   
   <url>
-    <loc>https://jovehawking.fun/tags/JVM/</loc>
-    <lastmod>2024-04-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jovehawking.fun/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
-    <lastmod>2024-04-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://jovehawking.fun/tags/TED/</loc>
     <lastmod>2024-04-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -339,6 +325,20 @@
   
   <url>
     <loc>https://jovehawking.fun/tags/%E6%BC%94%E8%AE%B2/</loc>
+    <lastmod>2024-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jovehawking.fun/tags/JVM/</loc>
+    <lastmod>2024-04-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jovehawking.fun/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2024-04-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -389,14 +389,14 @@
 
   
   <url>
-    <loc>https://jovehawking.fun/categories/JVMinG/</loc>
+    <loc>https://jovehawking.fun/categories/TEDinG/</loc>
     <lastmod>2024-04-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jovehawking.fun/categories/TEDinG/</loc>
+    <loc>https://jovehawking.fun/categories/JVMinG/</loc>
     <lastmod>2024-04-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
