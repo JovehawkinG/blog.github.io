@@ -6,7 +6,7 @@
   <link href="https://jovehawking.fun/atom.xml" rel="self"/>
   
   <link href="https://jovehawking.fun/"/>
-  <updated>2024-04-25T14:15:49.982Z</updated>
+  <updated>2024-04-29T13:23:48.021Z</updated>
   <id>https://jovehawking.fun/</id>
   
   <author>
@@ -17,11 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>软考-5.2传输介质-通信方式-IP地址-子网划分</title>
+    <link href="https://jovehawking.fun/posts/f42c09a9.html"/>
+    <id>https://jovehawking.fun/posts/f42c09a9.html</id>
+    <published>2024-04-29T11:20:57.000Z</published>
+    <updated>2024-04-29T13:23:48.021Z</updated>
+    
+    <content type="html"><![CDATA[<h1>前言</h1><p>内容：</p><ul><li>传输介质（了解）</li><li>通信方式、同步方式和交换方式（重要）</li><li>IP地址（重点）</li><li>子网划分（重点）</li><li>超网（了解）</li></ul><h1>中论</h1><h2 id="传输介质">传输介质</h2><ul><li><p>双绞线：俗称网线；传输距离在100m以内</p><ul><li>无屏蔽双绞线UTP。CAT3（3类UTP；10Mbps）、CAT5（5类UTP；100Mbps）、CAT5E（超5类UTP；1000Mbps）、CAT6（6类UTP；1000Mbps）</li><li>屏蔽双绞线STP。相较于UTP增加了一层屏蔽层，提高了传输的可靠性。</li><li>网线安装顺序（记住位置）</li></ul><p><img src="../image/post/image-20240429205538714.png" alt="image-20240429205538714"></p></li><li><p>光纤：光信号传输</p><ul><li>多模光纤MMF：可以同时传输多种不同的信号；采用发光二极管LED为光源；成本低；传输效率和可靠性也低；适合短距离传输</li><li>单模光纤SMF：一般只能传输一种信号；采用激光二极管LD作为光源；支持激光信号的传播；成本高；传输距离远；可靠性高。</li></ul></li><li><p>无线信道</p><ul><li>无线电波</li><li>红外光波</li></ul></li></ul><h2 id="通信方式、同步方式和交换方式（重要）">通信方式、同步方式和交换方式（重要）</h2><p><strong>通信方向</strong></p><ul><li>单工</li><li>半双工</li><li>全双工</li></ul><p><strong>同步方式</strong></p><ul><li>异步传输：发送方每发送一个字符，需要约定一个起始位和停止位插入到字符的起始和结尾处。</li><li>同步传输：以数据块为单位进行传输，当发送方要发送数据时，先发送一个同步帧；结束后又会有结束帧。</li></ul><p><strong>传输方式</strong></p><ul><li>串行传输：一根数据线，1bit发送</li><li>并行传输：多跟数据线，多bit发送</li></ul><p><strong>交换方式</strong>（重要）</p><ul><li>电路交换：通信双方建立一个专用电路；面向连接；实时性高；链路利用率低</li><li>报文交换：以报文为单位，存储转发模式（收到数据先存储，后校验，无误后转发）；有延迟；可靠性高；无连接</li><li>分组交换：以分组为单位，存储转发模式；时延小于报文交换<ul><li>数据报：目前主流交换方式；各个分组携带地址信息；自由选择不同的路由路径；接收方重新组装；无连接；不可靠</li><li>虚电路：通信双方建立一个虚拟的通信线路；空闲的时候这条线路也可以传输其他数据；面向连接；可靠</li><li>信元交换：异步传输模式ATM采用的交换模式；本质按照虚电路方式进行转发；信元固定长度的分组（共53B，其中5B为头部，48B为数据域）；面向连接；可靠</li></ul></li></ul><h2 id="IP地址（重点）">IP地址（重点）</h2><p>点分十进制表示。</p><p><strong>分类IP地址</strong></p><p>逻辑上将IP地址分为网络号和主机号，根据网络号位数的不同，将IP地址分为以下几类：</p><p><img src="../image/post/image-20240429211036717.png" alt="image-20240429211036717"></p><p><strong>无分类编址</strong></p><p>IP地址/网络号表示</p><p><strong>特殊IP地址</strong></p><p>公有地址：直接访问因特网的地址，全网唯一</p><p>私有地址：非注册地址，组织机构内部使用</p><p><img src="../image/post/image-20240429211301558.png" alt="image-20240429211301558"></p><p>其他特殊地址：</p><p><img src="../image/post/image-20240429211314083.png" alt="image-20240429211314083"></p><h2 id="子网划分（重点）">子网划分（重点）</h2><p>将IP地址按标准划分为A、B、C类后，进一步划分，即<strong>将主机号拿出即为作为子网号</strong>，就可以划分多个子网，此时IP地址组成：网络号+子网号+主机号</p><ul><li>网络号和子网号都为1，主机号都为0，这样的地址为子网掩码</li><li>子网号可以全0或全1，主机号不能为全0或全1，所以计算主机数时需要-2。</li></ul><h2 id="超网（了解）">超网（了解）</h2><p>就是划分子网的逆过程，将网络号取出几位作为主机号。</p><h1>后记</h1><blockquote><p>活得太清楚，本身就不是一件浪漫的事</p></blockquote>]]></content>
+    
+    
+    <summary type="html">文老师5.2传输介质-通信方式-IP地址-子网划分</summary>
+    
+    
+    
+    <category term="软考inG" scheme="https://jovehawking.fun/categories/%E8%BD%AF%E8%80%83inG/"/>
+    
+    
+    <category term="软考" scheme="https://jovehawking.fun/tags/%E8%BD%AF%E8%80%83/"/>
+    
+    <category term="文老师" scheme="https://jovehawking.fun/tags/%E6%96%87%E8%80%81%E5%B8%88/"/>
+    
+  </entry>
+  
+  <entry>
     <title>软考-5.1七层模型-局域网-TCPIP协议族</title>
     <link href="https://jovehawking.fun/posts/785e391.html"/>
     <id>https://jovehawking.fun/posts/785e391.html</id>
     <published>2024-04-25T11:54:44.000Z</published>
-    <updated>2024-04-25T14:15:49.982Z</updated>
+    <updated>2024-04-25T14:16:57.583Z</updated>
     
     <content type="html"><![CDATA[<h1>前言</h1><p>内容：</p><ul><li><p>网络相关功能分类</p></li><li><p>七层模型</p></li><li><p>局域网</p></li><li><p>广域网</p></li><li><p>TCP/IP协议（重点）</p></li><li><p>交换技术</p></li><li><p>路由技术</p></li></ul><h1>中论</h1><h2 id="网络相关功能分类">网络相关功能分类</h2><p>计算机网络的功能：数据通信、资源共享、管理集中化、实现分布式处理、负载均衡</p><p>网络性能指标：速率、带宽、吞吐量、时延、往返时间</p><p>网络非性能指标：费用、质量、标准化、可靠性、可扩展性、可升级性、易管理性和可维护性</p><p>通信技术是计算机网络的基础，信道可以分为物理信道和逻辑信道。</p><p>同时传递多路数据需要：复用技术和多址技术</p><p>新一代移动通信技术（5G），特点：</p><p>（1）基于OFDM优化的波形和多址接入</p><p>（2）实现可扩展的OFDM间隔参数配置</p><p>（3）OFDM加窗提高多路传输效率</p><p>（4）灵活框架设计</p><p>（5）大规模MIMO：最多256根天线</p><p>（6）毫米波：频率大约24GHz以上的频段</p><p>（7）频谱共享</p><p>（8）先进的信道编码技术</p><h2 id="OSI七层模型">OSI七层模型</h2><p><img src="../image/post/image-20240425215446097.png" alt="image-20240425215446097"></p><h2 id="局域网">局域网</h2><p>以太网：一种计算机局域网组网技术</p><p>以太网规范：IEEE 802.3。最小帧长64字节</p><p>无线局域网WLAN技术标准：IEEE 802.11</p><h2 id="广域网">广域网</h2><p>广域网相关技术：同步光网络、数字数据网、帧中继、异步传输技术</p><h2 id="TCP-IP协议">TCP/IP协议</h2><p>网络协议三要素：语义、语法、时序</p><p><strong>TCP/IP四层模型</strong></p><p><img src="../image/post/image-20240425215852145.png" alt="image-20240425215852145"></p><ul><li>网络层协议：<ul><li>IP：无连接、不可靠</li><li>ICMP：因特网控制报文协议</li><li>ARP和RARP：地址解析协议。ARP：IP转物理地址；RARP：物理地址转IP</li><li>IGMP：网络组管理协议，支持组播</li></ul></li><li>传输层协议：<ul><li>TCP：可靠的、全双工</li><li>UDP：不可靠、无连接</li></ul></li><li>应用层协议：<ul><li>FTP：可靠的文本协议</li><li>HTTP：超文本传输协议</li><li>SMTP和POP3：简单邮件传输协议</li><li>Telnet：远程连接协议</li><li>TFTP：不可靠、开销小的小文件传输协议</li><li>SNMP：简单网络管理协议</li><li>DHCP：动态主机配置协议</li><li>DNS：域名解析协议</li></ul></li></ul><p><strong>协议端口号对照表（掌握）</strong></p><p><img src="../image/post/image-20240425220659471.png" alt="image-20240425220659471"></p><h2 id="交换技术">交换技术</h2><p>交换机功能：</p><ul><li>集线功能</li><li>中继功能</li><li>桥接功能</li><li>隔离冲突域功能</li></ul><p>交换机需要实现的功能：</p><ul><li>转发路径学习</li><li>数据转发</li><li>数据泛洪</li><li>链路地址更新</li></ul><h2 id="路由技术">路由技术</h2><p>路由功能：</p><ul><li>异种网络互连</li><li>子网协议转换</li><li>数据路由</li><li>速率适配</li><li>隔离网络</li><li>报文分片和重组</li><li>备份、流量控制</li></ul><p>路由协议可分为内部网关协议（IGP）和外部网关协议（EGP）</p><p>网络建设工程可分为网络规划、网络设计和网络实施三个环节</p><h1>后记</h1><blockquote><p>人总要沉淀下来，过一段宁静而自醒的日子。</p></blockquote>]]></content>
     
@@ -67,7 +90,7 @@
     <link href="https://jovehawking.fun/posts/e89aa49e.html"/>
     <id>https://jovehawking.fun/posts/e89aa49e.html</id>
     <published>2024-04-23T23:27:50.000Z</published>
-    <updated>2024-04-24T23:08:04.434Z</updated>
+    <updated>2024-04-25T14:16:57.585Z</updated>
     
     <content type="html"><![CDATA[<h1>前言</h1><p>视频教程：<a href="https://www.bilibili.com/video/BV1Dz4y1A7FB?p=2&amp;vd_source=85ac5ee1b07df12a44b648a8751d30f6">https://www.bilibili.com/video/BV1Dz4y1A7FB?p=2&amp;vd_source=85ac5ee1b07df12a44b648a8751d30f6</a></p><h1>相关知识点</h1><p><img src="../image/post/image-20240425070001524.png" alt="image-20240425070001524"></p><h1>面试题</h1>]]></content>
     
@@ -441,29 +464,6 @@
     
     
     <summary type="html">文老师1.3节磁盘-输入输出技术-总线</summary>
-    
-    
-    
-    <category term="软考inG" scheme="https://jovehawking.fun/categories/%E8%BD%AF%E8%80%83inG/"/>
-    
-    
-    <category term="软考" scheme="https://jovehawking.fun/tags/%E8%BD%AF%E8%80%83/"/>
-    
-    <category term="文老师" scheme="https://jovehawking.fun/tags/%E6%96%87%E8%80%81%E5%B8%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>软考-1.2节指令系统-存储系统</title>
-    <link href="https://jovehawking.fun/posts/7d3b98d9.html"/>
-    <id>https://jovehawking.fun/posts/7d3b98d9.html</id>
-    <published>2024-04-08T12:20:22.000Z</published>
-    <updated>2024-04-08T15:16:19.503Z</updated>
-    
-    <content type="html"><![CDATA[<h1>前言</h1><p>内容：</p><ul><li>指令系统</li><li>存储系统</li></ul><h1>中论</h1><h2 id="指令系统">指令系统</h2><p>计算机的指令由操作数和操作码组成</p><ul><li>操作数：参加运算的数据以及所在的单元地址</li><li>操作码：决定要完成的操作</li></ul><p>计算机指令执行过程：</p><p>​取指令–&gt;分析指令–&gt;执行指令</p><p><strong>指令寻址的方式</strong>[指令寻址：下一条<strong>欲执行</strong>指令的地址（始终由程序计数器PC给出）]</p><p>顺序寻址：PC = ( PC ) + 1，1指的是一个指令的字长</p><p>跳跃寻址：由转移指令指出 PC 的值</p><p><strong>数据寻址（指令操作数）的方式</strong>[数据寻址：确定本条指令的地址码指明的真实地址]</p><p>==立即寻址==：指令的地址码字段不是地址，而是操作数本身。</p><p>==直接寻址==：在指令的地址字段中直接指出操作数在主存的地址。【操作数的地址】</p><p>==间接寻址==：指令地址码字段指向的存储单元中存储的是操作数的地址。【操作数的地址的地址】</p><p>==寄存器寻址==：地址码是寄存器的编号</p><p>基址寻址：基址寄存器的内容机上指令中形式地址而形成操作数的有效地址</p><p>变址寻址：变址寄存器的内容机上指令中形式地址而形成操作数的有效地址。</p><p><strong>CISC和RISC</strong></p><p>CISC：复杂指令系统。由微程序实现。</p><p>RISC：简单指令系统。由硬件实现（通用寄存器、硬布线逻辑控制）。==适合采用流水线==</p><p><strong>流水线</strong></p><p>流水线原理：将指令分成不同段，每段由不同的部分去处理。</p><p><strong>RISC的流水线技术</strong></p><ol><li>超流水线技术。增加级数、提高主频，以时间换取空间。</li><li>超标量技术。多条流水线，以空间换取时间。</li><li>超长指令字。软硬结合。</li></ol><p><strong>流水线时间计算</strong></p><p>流水线周期：执行最长的时间段为流水线周期。</p><p>流水线执行时间：一条指令总时间+(总指令数-1)*流水线周期。</p><p>流水线吞吐率计算：指令条数/流水线执行时间。</p><p>流水线加速比计算：不使用流水线执行时间/使用流水线执行时间。</p><h2 id="存储系统">存储系统</h2><p>两级存储：Cache-主存、主存-辅存（虚拟存储体系）</p><p>局部性原理：总的来说，CPU在运行时所访问的数据会趋向于一个较小的局部空间地址内</p><ul><li>时间局部性：相邻的时间会访问一个数据项</li><li>空间局部性：相邻的地址空间被连续访问</li></ul><p><strong>高速缓存Cache</strong></p><ul><li>由控制部分和存储器组成。前者判断是否命中Cache，后者存储数据。</li><li>直接与CPU交互，位于CPU和主存之间。</li><li>地址映射：CPU传输的是主存单元的地址，不是Cache的地址，所以需要将主存地址转成Cache地址进行判断。==这种转换由硬件自动完成映射==<ul><li>直接映像：将Cache分成等块，主存也分成等块。数据只能放在相同块号的Cache中。地址变换简单，但容易造成资源浪费。</li><li>全相联映射：主存中任意一块都能与Cache中的任意一块对应。地址变化复杂，最不容易发生块冲突。</li><li>组组相连映像：前两种的结合。先分块（直接映像）后分组（权向量映像），即主存和Cache中的组号相同才能命中，同一组号内的所有块可以任意调换。</li></ul></li><li>替换算法：是Cache尽可能高的命中<ul><li>随机替换算法</li><li>先进先出算法（FIFO）</li><li>近期最少使用算法（LRU）</li><li>优化替换算法</li></ul></li><li>CPU读取一次数据的平均时间 = Cache命中率×读取Cache时间+未命中率×读取主存时间</li></ul><h1>后记</h1><p>补充：</p><p>Flyynn分类法根据计算机在执行程序的过程中的==指令流和数据流==的不同组合，将计算机分为4类。多核计算机属于MIMD（多指令、多数据）。</p><blockquote><p>连伟人的一生都充满了那么大的艰辛，一个平凡的人吃点苦又算得了什么呢？  ——————《平凡的世界》</p></blockquote>]]></content>
-    
-    
-    <summary type="html">文老师1.2节指令系统-存储系统</summary>
     
     
     
