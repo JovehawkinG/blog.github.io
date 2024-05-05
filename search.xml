@@ -4,6 +4,208 @@
   
     
     <entry>
+      <title>软考-信息系统基础知识（上）</title>
+      <link href="/posts/a1b8376b.html"/>
+      <url>/posts/a1b8376b.html</url>
+      
+        <content type="html"><![CDATA[<h1>前言</h1><p>内容：</p><ul><li>信息系统概述</li><li>信息系统声明周期</li></ul><h1>中论</h1><h2 id="信息系统概述">信息系统概述</h2><p>信息系统：以处理信息流为目的的人机一体化系统</p><p>基本功能：输入、存储、处理、输出和控制</p><blockquote><p>诺兰模型：信息系统进化的阶段模型</p><ol><li>初始阶段。只作为办公设备使用，应用非常少</li><li>传播阶段。盲目投入，效率低</li><li>控制阶段。<code>计算机管理变为数据管理的关键</code></li><li>集成阶段。建立基础数据库，建成统一的信息管理系统</li><li>数据管理阶段。使用统一平台，各部门、各系统基本实现资源整合和信息共享</li><li>成熟阶段。满足企业各个层次的需求</li></ol></blockquote><p>信息系统的分类（从低级到高级）</p><ol><li>业务（数据）处理系统（TPS/DPS）</li><li>管理信息系统（MIS）</li><li>决策支持系统（DSS）</li><li>专家系统（ES）</li><li>办公自动化系统（OAS）</li></ol><p><strong>企业中用到的信息化系统</strong></p><ul><li>ERP系统：管理公司各种资源</li><li>WMS系统：管理库房货位</li><li>MES系统：生产过程和过程中的防呆、自动化设备集成</li><li>PDM系统：管理研发阶段的物料、BOM、工程变更数据、负责产品数据为主</li></ul><h2 id="信息系统的生命周期">信息系统的生命周期</h2><p>产生–&gt;开发–&gt;运行–&gt;消亡</p><ul><li>产生：概念阶段或者是信息系统的需求分析阶段，主要有两个过程：概念的产生过程和需求分析过程</li><li>开发：<ul><li>总体规划阶段：基础是需求分析</li><li>系统分析阶段：为系统设计阶段提供系统的逻辑模型，是管理流程和信息流程的交汇点</li><li>系统设计阶段：设计出信息系统的实施方案</li><li>系统实施阶段：将设计阶段在计算机和网络上具体实现，该阶段的用户参与特别重要</li><li>系统验收阶段：系统试运行阶段</li></ul></li><li>运行：正式移交给用户</li><li>消亡：在信息系统建设的初期，企业就应当注意系统的消亡条件和时机</li></ul><h1>后记</h1><blockquote><p>教一个人学会批判思考的最佳方式————就是写作</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软考inG </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 软考 </tag>
+            
+            <tag> 文老师 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>软考-7系统配置与性能评价</title>
+      <link href="/posts/27338331.html"/>
+      <url>/posts/27338331.html</url>
+      
+        <content type="html"><![CDATA[<h1>前言</h1><p>内容：</p><ul><li>性能指标</li><li>性能评价方法</li><li>阿姆达尔解决方案</li></ul><h1>中论</h1><h2 id="性能指标">性能指标</h2><p><strong>计算机</strong></p><ul><li>时钟频率（主频）</li><li>运算速度</li><li>运算精度</li><li>内存的存储容量</li><li>存储器的存取周期</li><li>数据处理速率PDR</li><li>吞吐率</li><li>各种响应时间</li><li>各种利用率</li><li>RASIS特性</li><li>平均故障响应时间</li><li>兼容性</li><li>可扩充性</li><li>性能价格比</li></ul><p><strong>路由器</strong></p><ul><li>设备吞吐量</li><li>端口吞吐量</li><li>丢包率</li><li>时延</li><li>时延抖动</li><li>VPN支持能力</li><li>…</li></ul><p><strong>交换机</strong></p><ul><li>…</li></ul><p><strong>网络</strong></p><ul><li>设备级性能指标</li><li>网络级性能指标</li><li>应用级性能指标</li><li>用户级性能指标</li><li>吞吐量</li></ul><p><strong>操作系统</strong></p><ul><li>系统的可靠性</li><li>系统的吞吐率（量）</li><li>系统响应时间</li><li>系统资源利用率</li><li>可移植性</li></ul><p><strong>数据库管理系统</strong></p><ul><li>数据库的大小</li><li>数据库中表的数量</li><li>单个表大小</li><li>表中允许的记录数</li><li>单个记录的大小</li><li>表上允许的索引数量</li><li>最大并发事务处理能力</li><li>负载均衡能力</li><li>最大连接数</li></ul><p><strong>WEB服务器</strong></p><ul><li>最大并发连接数</li><li>响应延迟</li><li>吞吐量</li></ul><h2 id="性能评价方法">性能评价方法</h2><p><strong>常用方法</strong></p><ol><li>时钟频率。频率越高，速度越快</li><li>指令执行速度。计量单位KIPS、MIPS</li><li>等效指令速度法。即固定比例法</li><li>数据处理速率。</li></ol><p><strong>基准程序法：把应用程序中用得对多、最频繁的那部分核心程序作为评价计算机性能的标准程序</strong></p><ol><li>整数测试程序。</li><li>浮点测试程序</li><li>SPEC基准程序</li><li>TPC基准程序<ol><li>TPC-C在线事务处理</li><li>TPC-D决策支持</li><li>TPC-E大型企业信息服务</li></ol></li></ol><blockquote><p>测评的准确程序：从高到低</p><p>真实的程序–&gt;核心程序–&gt;小型基准程序–&gt;合成基准程序</p></blockquote><h2 id="阿姆达尔解决方法">阿姆达尔解决方法</h2><p>公式：</p><p><img src="../image/post/image-20240504183627282.png" alt="image-20240504183627282"></p><blockquote><p>即总加速比 = （未增强的比例 + 增强的比例/加速比）的 倒数</p></blockquote><h1>后记</h1><blockquote><p>晒总会失去水分，藏才是保险的最好方式。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软考inG </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 软考 </tag>
+            
+            <tag> 文老师 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JVM学习-调优篇（下）</title>
+      <link href="/posts/1fdf4f1.html"/>
+      <url>/posts/1fdf4f1.html</url>
+      
+        <content type="html"><![CDATA[<h1>前言</h1><p>视频教程：<a href="https://www.bilibili.com/video/BV1Dz4y1A7FB?p=2&amp;vd_source=85ac5ee1b07df12a44b648a8751d30f6">https://www.bilibili.com/video/BV1Dz4y1A7FB?p=2&amp;vd_source=85ac5ee1b07df12a44b648a8751d30f6</a></p><h1>相关知识点</h1><h2 id="命令行工具">命令行工具</h2><h3 id="jps：查看JVM统计信息">jps：查看JVM统计信息</h3><p>jps(Java Process Status):</p><p>显示指定系统内所有的HotSpot虚拟机进程(查看虚拟机进程信息)，可用于查询正在运行的虚拟机进程。</p><p>说明：对于本地虚拟机进程来说，进程的本地虚拟机ID与操作系统的进程ID是一致的，是唯一的。</p><h3 id="jinfo：实时查看和修改JVM配置参数">jinfo：实时查看和修改JVM配置参数</h3><p><img src="../image/post/image-20240504172818183.png" alt="image-20240504172818183"></p><p>java -XX:+PrintFlagsFinal：查看所有JVM参数的最终值</p><h3 id="jmap：导出内存映像文件-内存使用情况">jmap：导出内存映像文件&amp;内存使用情况</h3><p><img src="../image/post/image-20240504172829166.png" alt="image-20240504172829166"></p><h3 id="jstack：打印JVM中线程快照">jstack：打印JVM中线程快照</h3><p>jstack(JVM Stack Trace)：用于生成虚拟机指定进程当前时刻的线程快照(虚拟机堆栈跟踪)。 线程快照就是当前虚拟机内指定进程的每一条线程正在执行的方法堆栈的集合。</p><blockquote><p>在thread dump中，要留意下面几种状态</p><ul><li>死锁，Deadlock（重点关注）</li><li>等待资源，Waiting on condition（重点关注）<br>等待获取监视器，Waiting on monitor entry（重点关注）</li><li>阻塞，Blocked（重点关注）</li><li>执行中，Runnable</li><li>暂停，Suspended</li><li>对象等待中，Object.wait() 或 TIMED_WAITING</li><li>停止，Parked</li></ul></blockquote><h2 id="GUI工具">GUI工具</h2><p><strong>JDK自带的工具</strong><br>jconsole:JDK自带的可视化监控工具。查看Java应用程序的运行概况、监控堆信息、永久区（或元空间）使用情况、类加载情况等<br>位置：jdk\bin\jconsole.exe<br>Visual VM:Visual VM是一个工具，它提供了一个可视界面，用于查看Java虚拟机上运行的基于Java技术的应用程序的详细信息。<br>位置：jdk\bin\jvisualvm.exe<br>JMC:Java Mission Control，内置Java Flight Recorder。能够以极低的性能开销收集Java虚拟机的性能数据。<br><strong>第三方工具</strong><br>MAT: MAT(Memory Analyzer Tool)是基于Eclipse的内存分析工具，是一个快速、功能丰富的Java heap分析工具，它可以帮助我们查找内存泄漏和减少内存消耗<br>Eclipse的插件形式<br>JProfiler：商业软件，需要付费。功能强大。<br>与VisualVM类似<br>Arthas:Alibaba开源的Java诊断工具。深受开发者喜爱。<br>Btrace:Java运行时追踪工具。可以在不停机的情况下，跟踪指定的方法调用、构造函数调用和系统内存等信息。</p><h2 id="性能测试工具Jmeter">性能测试工具Jmeter</h2><h3 id="使用流程">使用流程</h3><ol><li>新增线程组</li><li>新增Jmeter元组</li><li>新增监视器</li><li>运行&amp;查看结果</li></ol><h1>面试题</h1><p><strong>你使用过Java虚拟机性能监控和故障处理工具吗？（美图）<br>怎么打出线程栈信息。（字节跳动）<br>JVM诊断调优工具用过哪些？ (京东)<br>怎么获取 Java 程序使用的内存？堆使用的百分比？（国美）<br>几种常用的内存调试工具你知道哪些？（搜狐）<br>JVM诊断调优工具用过哪些？ (蚂蚁金服)</strong></p><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">```</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"></span><span class="strong">**JVM的进程有哪些线程启动，有了解吗？（神州租车）**</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>每当使用java命令执行一个带main方法的类时，就会启动JVM（应用程序），实际上就是在操作系统中启动一个JVM进程，JVM启动时，必然会创建以下5个线程：</p><p>1-main                     主线程，执行我们指定的启动类的main方法</p><p>2-Reference Handler        处理引用的线程</p><p>3-Finalizer                调用对象的finalize方法的线程，就是垃圾回收的线程</p><p>4-Signal Dispatcher        分发处理发送给JVM信号的线程</p><p>5-Attach Listener          负责接收外部的命令的线程</p><p>Attach Listener ：该线程是负责接收到外部的命令，执行该命令，并且把结果返回给发送者。通常我们会用一些命令去要求jvm给我们一些反馈信息，如：java -version、jmap、jstack等等。如果该线程在jvm启动的时候没有初始化，那么，则会在用户第一次执行jvm命令时，得到启动。</p><p>signal dispather： 前面我们提到第一个Attach Listener线程的职责是接收外部jvm命令，当命令接收成功后，会交给signal dispather线程去进行分发到各个不同的模块处理命令，并且返回处理结果。signal dispather线程也是在第一次接收外部jvm命令时，进行初始化工作。</p><p>Finalizer：JVM在垃圾收集时会将失去引用的对象包装成Finalizer对象（Reference的实现），并放入ReferenceQueue，由Finalizer线程来处理；最后将该Finalizer对象的引用置为null，由垃圾收集器来回收。</p><p>Reference Handler ：它主要用于处理引用对象本身（软引用、弱引用、虚引用）的垃圾回收问题。</p><p>main：主线程，用于执行我们编写的java程序的main方法。</p><p>编写java应用程序查看JVM启动时创建的所有线程，代码如下：<br>package com.atguigu.java;</p><p>import java.lang.management.ManagementFactory;<br>import java.lang.management.ThreadInfo;<br>import java.lang.management.ThreadMXBean;</p><p>public class JVMTest {<br>　　public static void main(String[] args) throws Exception {<br>　　　　ThreadMXBean threadMXBean = ManagementFactory.getThreadMXBean();<br>　　　　ThreadInfo[] threadInfos = threadMXBean.dumpAllThreads(false, false);<br>　　　　for(ThreadInfo threadInfo : threadInfos) {<br>　　　　　　System.out.println(threadInfo.getThreadId() + “-” + threadInfo.getThreadName());<br>　　　　}<br>　　}<br>}</p><hr><p>输出如下：</p><p>5-Attach Listener<br>4-Signal Dispatcher<br>3-Finalizer<br>2-Reference Handler<br>1-main</p><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">**<span class="keyword">JVM的参数，你知道的说一下 </span>(百度)</span><br><span class="line">说说你知道的几种主要的<span class="keyword">JVM参数（京东）</span></span><br><span class="line"><span class="keyword"></span><span class="keyword">JVM调优调的哪些参数？在哪里写这些参数？ </span>（亚信）</span><br><span class="line"> 内存调优参数都有什么？（顺丰）</span><br><span class="line"><span class="keyword">JVM调优调的哪些参数？问这样有什么好处？在哪里写这些参数（浪潮）**</span></span><br><span class="line"><span class="keyword"></span></span><br><span class="line">这些参数可以被松散的聚合成三类：</span><br><span class="line">行为参数（<span class="keyword">Behavioral </span>Options）：用于改变<span class="keyword">jvm的一些基础行为；</span></span><br><span class="line"><span class="keyword"></span>性能调优（Performance Tuning）：用于<span class="keyword">jvm的性能调优；</span></span><br><span class="line"><span class="keyword"></span>调试参数（Debugging Options）：一般用于打开跟踪、打印、输出等<span class="keyword">jvm参数，用于显示jvm更加详细的信息；</span></span><br><span class="line"><span class="keyword"></span></span><br></pre></td></tr></table></figure><p>行为参数(功能开关)<br>-XX:-DisableExplicitGC  禁止调用System.gc()；但jvm的gc仍然有效<br>-XX:+MaxFDLimit 最大化文件描述符的数量限制<br>-XX:+ScavengeBeforeFullGC   新生代GC优先于Full GC执行<br>-XX:+UseGCOverheadLimit 在抛出OOM之前限制jvm耗费在GC上的时间比例<br>-XX:-UseConcMarkSweepGC 对老生代采用并发标记交换算法进行GC<br>-XX:-UseParallelGC  启用并行GC<br>-XX:-UseParallelOldGC   对Full GC启用并行，当-XX:-UseParallelGC启用时该项自动启用<br>-XX:-UseSerialGC    启用串行GC<br>-XX:+UseThreadPriorities    启用本地线程优先级</p><p>性能调优<br>-XX:LargePageSizeInBytes=4m 设置用于Java堆的大页面尺寸<br>-XX:MaxHeapFreeRatio=70 GC后java堆中空闲量占的最大比例<br>-XX:MaxNewSize=size 新生成对象能占用内存的最大值<br>-XX:MaxPermSize=64m 老生代对象能占用内存的最大值<br>-XX:MinHeapFreeRatio=40 GC后java堆中空闲量占的最小比例<br>-XX:NewRatio=2  新生代内存容量与老生代内存容量的比例<br>-XX:NewSize=2.125m  新生代对象生成时占用内存的默认值<br>-XX:ReservedCodeCacheSize=32m   保留代码占用的内存容量<br>-XX:ThreadStackSize=512 设置线程栈大小，若为0则使用系统默认值<br>-XX:+UseLargePages  使用大页面内存</p><p>调试参数<br>-XX:-CITime 打印消耗在JIT编译的时间<br>-XX:ErrorFile=./hs_err_pid<pid>.log 保存错误日志或者数据到文件中<br>-XX:-ExtendedDTraceProbes   开启solaris特有的dtrace探针<br>-XX:HeapDumpPath=./java_pid<pid>.hprof  指定导出堆信息时的路径或文件名<br>-XX:-HeapDumpOnOutOfMemoryError 当首次遭遇OOM时导出此时堆中相关信息<br>-XX:OnError=“<cmd args>;<cmd args>” 出现致命ERROR之后运行自定义命令<br>-XX:OnOutOfMemoryError=“<cmd args>;<cmd args>”  当首次遭遇OOM时执行自定义命令<br>-XX:-PrintClassHistogram    遇到Ctrl-Break后打印类实例的柱状信息，与jmap -histo功能相同<br>-XX:-PrintConcurrentLocks   遇到Ctrl-Break后打印并发锁的相关信息，与jstack -l功能相同<br>-XX:-PrintCommandLineFlags  打印在命令行中出现过的标记<br>-XX:-PrintCompilation   当一个方法被编译时打印相关信息<br>-XX:-PrintGC    每次GC时打印相关信息<br>-XX:-PrintGC Details    每次GC时打印详细信息<br>-XX:-PrintGCTimeStamps  打印每次GC的时间戳<br>-XX:-TraceClassLoading  跟踪类的加载信息<br>-XX:-TraceClassLoadingPreorder  跟踪被引用到的所有类的加载信息<br>-XX:-TraceClassResolution   跟踪常量池<br>-XX:-TraceClassUnloading    跟踪类的卸载信息<br>-XX:-TraceLoaderConstraints 跟踪类加载器约束的相关信息</p><pre><code></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> JVMinG </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JVM </tag>
+            
+            <tag> 后端开发 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JVM学习-调优篇（中）</title>
+      <link href="/posts/84a40413.html"/>
+      <url>/posts/84a40413.html</url>
+      
+        <content type="html"><![CDATA[<h1>前言</h1><p>视频教程：<a href="https://www.bilibili.com/video/BV1Dz4y1A7FB?p=2&amp;vd_source=85ac5ee1b07df12a44b648a8751d30f6">https://www.bilibili.com/video/BV1Dz4y1A7FB?p=2&amp;vd_source=85ac5ee1b07df12a44b648a8751d30f6</a></p><h1>相关知识点</h1><h2 id="优化案例1：调整堆大小提高服务的吞吐量">优化案例1：调整堆大小提高服务的吞吐量</h2><p><strong>调整方法</strong></p><p>修改tomcatJVM配置。</p><p>生产环境下，Tomcat并不建议直接在catalina.sh里配置变量，而是写在与catalina同级目录（bin目录）下的setenv.sh里。</p><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">修改参数</span><br><span class="line"><span class="built_in">export</span> <span class="attribute">CATALINA_OPTS</span>=<span class="string">&quot;<span class="variable">$CATALINA_OPTS</span> -Xms120m&quot;</span></span><br><span class="line"><span class="built_in">export</span> <span class="attribute">CATALINA_OPTS</span>=<span class="string">&quot;<span class="variable">$CATALINA_OPTS</span> -XX:SurvivorRatio=8&quot;</span></span><br><span class="line"><span class="built_in">export</span> <span class="attribute">CATALINA_OPTS</span>=<span class="string">&quot;<span class="variable">$CATALINA_OPTS</span> -Xmx120m&quot;</span></span><br><span class="line"><span class="built_in">export</span> <span class="attribute">CATALINA_OPTS</span>=<span class="string">&quot;<span class="variable">$CATALINA_OPTS</span> -XX:+UseParallelGC&quot;</span></span><br><span class="line"><span class="built_in">export</span> <span class="attribute">CATALINA_OPTS</span>=<span class="string">&quot;<span class="variable">$CATALINA_OPTS</span> -XX:+PrintGCDetails&quot;</span></span><br><span class="line"><span class="built_in">export</span> <span class="attribute">CATALINA_OPTS</span>=<span class="string">&quot;<span class="variable">$CATALINA_OPTS</span> -XX:MetaspaceSize=64m&quot;</span></span><br><span class="line"><span class="built_in">export</span> <span class="attribute">CATALINA_OPTS</span>=<span class="string">&quot;<span class="variable">$CATALINA_OPTS</span> -XX:+PrintGCDateStamps&quot;</span></span><br><span class="line"><span class="built_in">export</span> <span class="attribute">CATALINA_OPTS</span>=<span class="string">&quot;<span class="variable">$CATALINA_OPTS</span> -Xloggc:/opt/tomcat8.5/logs/gc.log&quot;</span></span><br></pre></td></tr></table></figure><h2 id="性能优化案例2：JVM优化之JIT优化">性能优化案例2：JVM优化之JIT优化</h2><p><strong>堆，是分配对象的唯一选择吗</strong></p><p>如果经过逃逸分析(Escape Analysis)后发现，一个对象并没有逃逸出方法的话，那么就可能被优化成栈上分配。这样就无需在堆上分配内存，也无须进行垃圾回收了。这也是最常见的堆外存储技术。</p><h3 id="前提：逃逸分析">前提：逃逸分析</h3><blockquote><p>逃逸分析的基本行为就是分析对象动态作用域：</p><ul><li>当一个对象在方法中被定义后，对象只在方法内部使用，则认为没有发生逃逸。</li><li>当一个对象在方法中被定义后，它被外部方法所引用，则认为发生逃逸。例如作为调用参数传递到其他地方中。</li></ul></blockquote><p>逃逸分析包括：</p><ul><li>全局变量赋值逃逸</li><li>方法返回值逃逸</li><li>实例引用发生逃逸</li><li>线程逃逸:赋值给类变量或可以在其他线程中访问的实例变量</li></ul><p><strong>参数设置</strong></p><p>在JDK 6u23版本之后，HotSpot中默认就已经开启了逃逸分析。<br>如果使用的是较早的版本，开发人员则可以通过：<br>通过选项“-XX:+DoEscapeAnalysis”显式开启逃逸分析<br>通过选项“-XX：+PrintEscapeAnalysis”查看逃逸分析的筛选结果。</p><p><strong>逃逸分析存在的问题</strong></p><p>是无法保证非逃逸分析的性能消耗一定能高于他的消耗。虽然经过逃逸分析可以做标量替换、栈上分配、和锁消除。但是逃逸分析自身也是需要进行一系列复杂的分析的，这其实也是一个相对耗时的过程。</p><h3 id="方法：栈上分配">方法：栈上分配</h3><p>JIT编译器在编译期间根据逃逸分析的结果，发现如果一个对象并没有逃逸出方法的话，就可能被优化成栈上分配。分配完成后，继续在调用栈内执行，最后线程结束，栈空间被回收，局部变量对象也被回收。这样就无须进行垃圾回收了。</p><h3 id="方法：同步省略（消除）">方法：同步省略（消除）</h3><p>同步省略。如果一个对象被发现只能从一个线程被访问到，那么对于这个对象的操作可以不考虑同步。</p><ul><li>线程同步的代价是相当高的，同步的后果是降低并发性和性能。</li><li>在动态编译同步块的时候，JIT编译器可以借助逃逸分析来判断同步块所使用的锁对象是否只能够被一个线程访问而没有被发布到其他线程。如果没有，那么JIT编译器在编译这个同步块的时候就会取消对这部分代码的同步。这样就能大大提高并发性和性能。这个取消同步的过程就叫同步省略，也叫锁消除。</li></ul><h3 id="方法：标量替换">方法：标量替换</h3><p>标量（Scalar）是指一个无法再分解成更小的数据的数据。Java中的原始数据类型就是标量。</p><blockquote><p>相对的，那些还可以分解的数据叫做聚合量（Aggregate），Java中的对象就是聚合量，因为他可以分解成其他聚合量和标量。</p></blockquote><p>如果经过逃逸分析，发现一个对象不会被外界访问的话，那么经过JIT优化，就会把这个对象拆解成若干个其中包含的若干个成员变量来代替。这个过程就是标量替换。</p><p><strong>参数设置</strong></p><p>参数-XX:+EliminateAllocations：开启了标量替换(默认打开)，允许将对象打散分配在栈上。</p><h2 id="性能优化案例3：合理配置堆内存">性能优化案例3：合理配置堆内存</h2><p><strong>堆大小设置原则</strong></p><p>Java整个堆大小设置，Xmx 和 Xms设置为老年代存活对象的3-4倍，即FullGC之后的老年代内存占用的3-4倍。<br>方法区（永久代 PermSize和MaxPermSize 或 元空间 MetaspaceSize 和 MaxMetaspaceSize）设置为老年代存活对象的1.2-1.5倍。<br>年轻代Xmn的设置为老年代存活对象的1-1.5倍。<br>老年代的内存大小设置为老年代存活对象的2-3倍。</p><p><strong>如何计算老年代存活对象</strong></p><ol><li><p>JVM参数中添加GC日志，GC日志中会记录每次FullGC之后各代的内存大小，观察老年代GC之后的空间大小。可观察一段时间内（比如2天）的FullGC之后的内存情况，根据多次的FullGC之后的老年代的空间大小数据来预估FullGC之后老年代的存活对象大小（可根据多次FullGC之后的内存大小取平均值）。</p></li><li><p>强制触发一次FullGC，来观察FullGC之后的老年代存活对象大小。</p><ul><li>如何强制触发Full GC?<ul><li>jmap -dump:live,format=b,file=heap.bin &lt;pid&gt; 将当前的存活对象dump到文件，此时会触发FullGC</li><li>jmap -histo:live <pid> 打印每个class的实例数目,内存占用,类全名信息.live子参数加上后,只统计活的对象数量. 此时会触发FullGC</li><li>在性能测试环境，可以通过Java监控工具来触发FullGC，比如使用VisualVM和JConsole，VisualVM集成了JConsole，VisualVM或者JConsole上面有一个触发GC的按钮</li></ul></li></ul></li></ol><p><strong>新生代与老年代的比例</strong></p><p>JDK 1.8 默认使用 UseParallelGC 垃圾回收器，该垃圾回收器默认启动了 AdaptiveSizePolicy，会根据GC的情况自动计算计算 Eden、From 和 To 区的大小；所以这是由于JDK1.8的自适应大小策略导致的</p><blockquote><p>开启：-XX:+UseAdaptiveSizePolicy</p><p>关闭：-XX:-UseAdaptiveSizePolicy</p><p>如果不想动态调整内存大小，以下是解决方案：</p><p>1、保持使用 UseParallelGC，显式设置 -XX:SurvivorRatio=8。</p><p>2、使用 CMS 垃圾回收器。CMS 默认关闭 AdaptiveSizePolicy。配置参数 -XX:+UseConcMarkSweepGC</p></blockquote><h2 id="性能优化案例4：CPU占用很高排查方案">性能优化案例4：CPU占用很高排查方案</h2><p><strong>排查方案</strong></p><p>方案一：</p><ol><li>首先查看java进程ID</li><li>根据进程 ID 检查当前使用异常线程的pid</li><li>把线程pid变为16进制如 31695 -&gt; 7bcf  然后得到0x7bcf</li><li>jstack 进程的pid | grep -A20  0x7bcf  得到相关进程的代码 (鉴于我们当前代码量比较小，线程也比较少，所以我们就把所有的信息全部导出来)</li><li>jps -l。 # 查看所有java进程 ID</li><li>top -Hp 1456。 # 根据进程 ID 检查当前使用异常线程的pid</li></ol><p>方案二</p><p>1-3同上</p><ol start="4"><li>ps aux | grep java  查看到当前java进程使用cpu、内存、磁盘的情况获取使用量异常的进程</li><li>top -Hp 进程pid  检查当前使用异常线程的pid</li><li>把线程pid变为16进制如 31695 - 》 7bcf  然后得到0x7bcf</li><li>jstack 进程的pid | grep -A20  0x7bcf  得到相关进程的代码</li></ol><h2 id="性能优化案例5：G1并发执行的线程数对性能的影响">性能优化案例5：G1并发执行的线程数对性能的影响</h2><p>对于G1GC来说，增加线程数之后，我们的请求的平均响应时间和GC时间都有一个明显的减少了，仅从效果上来看，我们这次的优化是有一定效果的。大家在工作中对于线上项目进行优化的时候，可以考虑到这方面的优化。</p><h2 id="性能优化案例6：调整垃圾回收器提高服务的吞吐量">性能优化案例6：调整垃圾回收器提高服务的吞吐量</h2><p>略</p><h2 id="性能优化案例7：日均百万级订单交易系统如何设置JVM参数">性能优化案例7：日均百万级订单交易系统如何设置JVM参数</h2><p>一天百万级订单这个绝对是现在顶尖电商公司交易量级，百万订单一般在4个小时左右产生，我们计算一下每秒产生多少订单，3000000/3600/4 = 208.3单/s，我们大概按照每秒300单来计算。</p><p><img src="../image/post/image-20240504163657635.png" alt="image-20240504163657635"></p><p>种系统我们一般至少要三四台机器去支撑，假设我们部署了三台机器，也就是每台每秒钟大概处理完成100单左右，也就是每秒大概有100个订单对象在堆空间的新生代内生成，一个订单对象的大小跟里面的字段多少及类型有关，比如int类型的订单id和用户id等字段，double类型的订单金额等，int类型占用4字节，double类型占用8字节，初略估计下一个订单对象大概1KB左右，也就是说每秒会有100KB的订单对象分配在新生代内。</p><p>真实的订单交易系统肯定还有大量的其他业务对象，比如购物车、优惠券、积分、用户信息、物流信息等等，实际每秒分配在新生代内的对象大小应该要再扩大几十倍，我们假设20倍，也就是每秒订单系统会往新生代内分配近2M的对象数据，这些数据一般在订单提交完的操作做完之后基本都会成为垃圾对象。</p><p>假设我们选择4核8G的服务器，就可以给JVM进程分配四五个G的内存空间，那么堆内存可以分到三四个G左右，于是可以给新生代至少分配1G，这样算下差不多需要10分钟左右才能把新生代放满触发minor gc，这样的GC频率我们是可以接受的。我们还可以继续调整young区大小。不一定是1:2，这样就可以降低GC频率。这样进入老年代的对象也会降低，减少Full GC频率。</p><p><img src="../image/post/image-20240504163711819.png" alt="image-20240504163711819"></p><p>如果系统业务量继续增长那么可以水平扩容增加更多的机器，比如五台甚至十台机器，这样每台机器的JVM处理请求可以保证在合适范围，不至于压力过大导致大量的gc。</p><p>假设业务量暴增几十倍，在不增加机器的前提下，整个系统每秒要生成几千个订单，之前每秒往新生代里分配的1M对象数据可能增长到几十M，而且因为系统压力骤增，一个订单的生成不一定能在1秒内完成，可能要几秒甚至几十秒，那么就有很多对象会在新生代里存活几十秒之后才会变为垃圾对象，如果新生代只分配了几百M，意味着一二十秒就会触发一次minor gc，那么很有可能部分对象就会被挪到老年代，这些对象到了老年代后因为对应的业务操作执行完毕，马上又变为了垃圾对象，随着系统不断运行，被挪到老年代的对象会越来越多，最终可能又会导致full gc，full gc对系统的性能影响还是比较大的。</p><h1>面试题</h1><p><strong>常用的性能优化方式有哪些？（百度金融）<br>虚拟机如何调优？（顺丰）<br>内存调优怎么调？有几种方式？（顺丰）<br>栈溢出导致的原因？如何解决？（搜狐）<br>JVM调优策略 （杭州鲁尔物联科技有限公司、燕梭金融、汇博云通）<br>如何优化减少Full GC？（阿里-闲鱼）<br>当出现了内存溢出，你怎么排错。  (京东)<br>有实际的JVM性能调优案例吗？重点需要关注哪些核心参数？  (滴滴)<br>OOM说一下？怎么排查？哪些会导致OOM? OOM出现在什么时候 (腾讯)<br>JVM性能调优都做了什么？(支付宝)<br>有做过JVM内存优化吗？ (小米)<br>JVM的编译优化 (蚂蚁金服)<br>JVM性能调优都做了什么  (蚂蚁金服)<br>JVM怎样调优，堆内存栈空间设置多少合适…  (蚂蚁金服)<br>JVM相关的分析工具使用过的有哪些？具体的性能调优步骤如何  (蚂蚁金服)<br>如何进行JVM调优？有哪些方法？ (阿里)<br>JVM如何调优、参数怎么调？ (字节跳动)<br>每秒几十万并发的秒杀系统为什么会频繁发生GC？  (京东)<br>日均百万级交易系统如何优化JVM？  (京东)<br>线上生产系统OOM如何监控及定位与解决？  (京东)<br>高并发系统如何基于G1垃圾回收器优化性能？ (京东)</strong></p><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">```</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"></span><span class="strong">**12306遭遇春节大规模抢票如何支撑？**</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>12306号称是国内并发量最大的秒杀网站，并发量达到百万级别。</p><p>普通电商订单–&gt;  下单 --&gt; 订单系统（IO）减库存 --&gt; 等待用户付款</p><p>12306一种可能的模型：下单 --&gt; 减库存和订单（redis、kafka）同时异步进行 --&gt; 等付款<br>但减库存最后还会把压力压到一台服务器上。如何？</p><p>分布式本地库存+单独服务器做库存均衡！</p><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="strong">**有一个50万PV的资料类网站（从磁盘提取文档到内存）原服务器是32位的，1.5G的堆，用户反馈网站比较缓慢。因此公司决定升级，新的服务器为64位，16G的堆内存，结果用户反馈卡顿十分严重，反而比以前效率更低了！**</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><ol><li><p>为什么原网站慢？<br>频繁的GC,STW时间比较长，响应时间慢！</p></li><li><p>为什么会更卡顿？<br>内存空间越大，FGC时间更长，延迟时间更长</p></li><li><p>咋办？</p></li></ol><blockquote><p>垃圾回收器：parallel GC ;  ParNew + CMS ; G1<br>配置GC参数：-XX:MaxGCPauseMillis 、 -XX:ConcGCThreads<br>根据log日志、dump文件分析，优化内存空间的比例<br>jstat   jinfo  jstack  jmap</p></blockquote><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="strong">**系统CPU经常100%，如何调优？（面试高频）**</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>（同 性能优化案例4：CPU占用很高排查方案）<br>CPU100%的话，一定是有线程占用系统资源。具体步骤前面已经讲过。<br>注意： 工作中有时候是工作线程100%占用了CPU，还有可能是垃圾回收线程占用了100%</p><figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="strong">**系统内存飙高，如何查找问题？（面试高频）**</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>一方面：jmap -heap 、jstat 、… ; gc日志情况<br>另一方面：dump文件分析</p><pre><code>**如何监控JVM**<figure class="highlight node-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript">命令行工具</span></span><br><span class="line"><span class="meta prompt_">&gt;</span> <span class="language-javascript">图形化界面工具</span></span><br></pre></td></tr></table></figure></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> JVMinG </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JVM </tag>
+            
+            <tag> 后端开发 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title></title>
+      <link href="/posts/0.html"/>
+      <url>/posts/0.html</url>
+      
+        <content type="html"><![CDATA[<p>title: 软考-信息系统基础知识（下）<br>tags:</p><ul><li>软考</li><li>文老师<br>categories:</li><li>软考inG<br>mathjax: true<br>description: 文老师信息系统基础知识（下）<br>swiper_index: 3<br>date: 2024-05-05 09:30:44</li></ul><h1>前言</h1><p>内容：</p><ul><li><p>信息系统开发方法</p></li><li><p>各种信息系统（TPS、MIS等）</p></li><li><p>典型信息系统架构模型</p></li><li><p>信息化战略体系（重要）</p></li><li><p>信息化战略规划</p></li></ul><h1>中论</h1><h2 id="信息系统开发方法">信息系统开发方法</h2><ol><li><p>结构化方法</p><p>一种传统的信息系统开发方法。由结构化分析、结构化设计、结构化程序设计三部分组合而成，其精髓是自顶向下、逐步求精和模块化设计。</p><p>特点：</p><ul><li>开发目标清晰化</li><li>开发工作阶段化</li><li>开发文档规范化</li><li>设计方法结构化</li></ul><p>不足：</p><ul><li>开发周期长</li><li>难以适应需求变化：</li><li>很少考虑数据结构：主要面向数据流开发</li></ul><p>常用工具：</p><ul><li>数据流图、数据字典、结构化语言、判定表、判定树</li></ul></li><li><p>原型化方法</p><p>根据用户初步需求，利用系统开发工具，快速地建立一个系统模型展示给用户，并在此基础上与用户交流，最后实现系统</p><p>优点：</p><ul><li>系统开发周期短、成本和风险降低、速度加快、开发效益高</li><li>增加用户满意度、提高了系统开发的成功率</li><li>有利于系统移交、运行和维护</li></ul><p>不足：</p><ul><li>开发环境要求高</li><li>管理水平要求高</li></ul></li><li><p>面向对象法（OO）</p><p>优点：</p><ul><li>更好的复用性</li><li>普遍适用于各类信息系统的开发</li></ul><p>不足：</p><ul><li>必须依靠一定的面向对象技术的支持</li></ul><blockquote><p>当前一些大型信息系统的开发，通常将结构化方法和OO方法结合起来。首先使用结构化方法进行自顶向下的整体划分；然后自底向下地采用OO方法进行开发。</p></blockquote></li><li><p>面向服务法（SO）</p><p>进一步将接口的定义与实现进行及解耦的开发方法</p><p>优点：快速响应需求和环境变化、提高系统可复用性、信息资源共享和系统之间的互操作性</p></li></ol><h2 id="业务处理系统TPS">业务处理系统TPS</h2><p>即电子数据处理系统（EDP）。针对管理中的具体的事务来辅助管理人员将所发生的数据进行记录、传票、记账、统计和分类，并制成报表。</p><p>主要功能：对企业管理中的日常事务所发生的数据进行输入、处理和输出。</p><p>数据处理周期：数据输入–&gt;数据处理–&gt;数据库的维护–&gt;文件报表的生成–&gt;查询处理</p><ul><li>数据输入：大量原始数据准确、迅速的输入到计算机系统中并存储起来</li><li>数据处理：两种处理方式：批处理（定期处理）、联机事务处理（实时处理）</li><li>数据库维护：保证数据库中的数据是最新的</li><li>文件报表的产生：为终端用户提供所需的有关文件和报表</li><li>查询处理：支持终端用户的批次查询或联机实时查询</li></ul><p>特点：</p><p>TPS是其他类型信息系统的信息产生器，企业在推进全面信息化的过程中往往从开发TPS入手；处理企业系统的边界。</p><h2 id="管理信息系统MIS">管理信息系统MIS</h2><p>在TPS的基础上引进大量管理方法和对企业整体信息进行处理，并利用信息进行预测、控制、计划、辅助企业全面管理的信息系统</p><p>四大组成部件：</p><ul><li>信息源</li><li>信息处理器</li><li>信息用户</li><li>信息管理者</li></ul><p>结构：</p><ul><li>战略计划</li><li>管理控制</li><li>运行控制</li></ul><p>功能：</p><ul><li><p>用功能-过程结构表示</p><p><img src="../image/post/image-20240505095452699.png" alt="image-20240505095452699"></p></li><li><p>用功能-层次矩阵表示</p><p><img src="../image/post/image-20240505095629143.png" alt="image-20240505095629143"></p></li></ul><h2 id="客户关系管理CRM">客户关系管理CRM</h2><p>主要模块：</p><ul><li>销售自动化</li><li>营销自动化</li><li>客户服务与支持</li><li>商业智能</li></ul><p>功能：</p><ul><li>客户服务：CRM的关键内容</li><li>市场营销</li><li>共享的客户资料库</li><li>分析能力</li></ul><blockquote><p>市场营销和客户服务是CRM的支柱性功能</p></blockquote><p>具备要素：</p><ul><li>畅通有效的客户交流渠道</li><li>对所获信息进行有效分析</li></ul><p>实现过程：</p><ul><li>客户服务与支持</li><li>客户群维系</li><li>商机管理</li></ul><h2 id="供应链管理SCM">供应链管理SCM</h2><p>在满足服务水平要求的同时，为了使系统成本达到最低而采用的将供应商、制造商、仓库、商店有效地结合在一起来生产商品，有效地控制和管理各种信息流、资金流和物流，并把正确数量的商品在正确的时间配送到正确的地点的一套管理方法</p><p>特点：</p><ol><li>以客户为中心</li><li>集成化管理</li><li>扩展性管理</li><li>合作管理</li><li>多层次管理</li></ol><p>供应链节点：</p><ul><li>供应商</li><li>制造商</li><li>分销商</li><li>零售商</li><li>仓库</li><li>配送中心</li><li>客户</li></ul><p>基本内容：</p><ul><li>计划</li><li>采购</li><li>制造</li><li>配送</li><li>退货</li></ul><h2 id="决策支持系统DSS">决策支持系统DSS</h2><p>功能：能够为解决非结构化管理问题提供支持。</p><p>DDS的基本模式反映DSS的形式及其与“真实系统”、人和外部环境的关系，其中管理者处于核心地位</p><p>基本结构形式：（1）两库结构、（2）基于知识的结构。其中两库结构由数据库子系统、模型库子系统和对话子系统组成</p><p>特点：</p><ul><li>面向决策者</li><li>支持对半结构化问题的决策</li><li>辅助决策者、支持决策者</li><li>体现决策过程的动态性</li><li>提倡交互式处理方式</li></ul><p>组成：</p><ol><li>数据的重组和确认：获得正确地数据井并且可用理想的形式操作这些数据</li><li>数据字典的确立</li><li>数据挖掘和智能体：用户运用工具进行数据存取和查询，其中工具就是智能体</li><li>模型建立：目的就是帮助决策者理解与选择有关的现象</li></ol><h2 id="专家系统ES">专家系统ES</h2><p>即基于知识的专家系统</p><p>特点：</p><ul><li>人工智能范畴，求解半结构化或非结构化问题</li><li>模拟人类专家在问题领域的推理，而不是模拟问题领域本身</li><li>组成三要素：描述问题状态的综合数据库，存放启发式经验知识的知识库、对知识库的知识进行推理的推理机</li><li>专家系统处理的问题是实际问题</li><li>专用性强，通用性差</li></ul><blockquote><p>ES是人工智能的一个分支</p><p>AI的研究重点放在开发具有智能行为的计算机系统上</p><p>特点：</p><ul><li>从过去的事件或情形中汲取经验，并应用于新的环境和场景</li><li>具有在缺乏重要信息时的解决问题的能力</li><li>处理和操纵各种符号、理解形象化图片的能力</li><li>想象力和创造力</li><li>善于启发</li></ul></blockquote><p>专家系统的组成：</p><ul><li>综合数据库：1.执行与推理过程中存放所需要和产生的各种信息的工作存储器（动态知识库）2.专家系统的知识库（静态知识库）</li><li>知识库：用来存放系统求解实际问题的领域知识。1.事实性知识；2.启发性知识</li><li>推理机：包括推理机制和控制策略</li><li>知识获取：主要包含两方面：1.知识的编辑和求精；2.知识的自学习</li><li>解释程序：负责回答用户提出的各种问题</li><li>人机接口：主要包含两部分：1.专家系统和用户的接口；2.专家系统、领域专家和知识工程师的接口</li></ul><h2 id="办公自动化系统OAS">办公自动化系统OAS</h2><p>办公信息处理手段的自动化。</p><p>办公自动化系统的支柱：</p><ul><li>行为科学：主导</li><li>系统科学：理论基础</li><li>计算机技术：运用方法</li><li>通信技术：运用方法</li></ul><p>组成：</p><ul><li>计算机设备</li><li>办公设备</li><li>数据通信</li><li>网络设备</li><li>软件系统</li></ul><h2 id="企业资源规划ERP">企业资源规划ERP</h2><p>指建立在信息技术基础上，以系统化的管理思想，为企业提供决策和运营手段的管理平台。</p><blockquote><p>演变过程：</p><p>物料需求计划–&gt;制造资源计划–&gt;企业资源计划</p></blockquote><p>企业三大（四大）资源：</p><ul><li>物流：物理管理</li><li>资金流：财务管理</li><li>信息流：生产控制管理</li><li>（人力资源）</li></ul><p>结构：</p><ol><li>生产预测</li><li>销售管理</li><li>经营计划</li><li>主生产计划</li><li>物种需求计划</li><li>能力需求计划</li><li>车间作业计划</li><li>采购与库存管理</li><li>质量与设备管理</li><li>财务管理</li><li>ERP有关的扩展应用模块</li></ol><h2 id="典型信息系统架构模型">典型信息系统架构模型</h2><h3 id="政府信息化和政务">政府信息化和政务</h3><p>电子政务的内容：G2G、G2C、C2G、G2B、B2G</p><h3 id="企业信息化和电子商务">企业信息化和电子商务</h3><p>企业信息化就是技术和业务相融合，从三个层面实现</p><ul><li>企业战略层面。必须对企业目前的业务策略和未来的发展方向作深度分析</li><li>业务运作层面。针对企业战略，分析获得实现这些目标的关键驱动力和关键流程</li><li>管理运作层面。</li></ul><p>企业战略数据模型：</p><ul><li>数据库模型</li><li>数据仓库模型</li></ul><p>企业信息化方法：</p><ol><li>业务流程重构法</li><li>核心业务应用法</li><li>信息系统建设法</li><li>主题数据库法</li><li>资源管理法</li><li>人力资本投资法</li></ol><h2 id="信息化战略体系（重要）">信息化战略体系（重要）</h2><p><img src="../image/post/image-20240505103351615.png" alt="image-20240505103351615"></p><p>企业战略规划：利用机会和威胁评价现在和未来的环境，用优势和劣势评价企业的现状，进而选择和确定企业的总体和长远目标。</p><p>信息系统战略规划：如何通过信息系统来支撑业务流程的运作，进而实现企业的关键业务目标，重点在于对信息系统远景、组成架构、各部分逻辑关系进行规划。</p><p>信息计划战略规划：即IT战略规划，在信息系统规划的基础上，对支撑信息系统运行的硬件、软件、支撑环境等进行具体的规划，更关心技术层面的问题。</p><p>系统规划：单个项目的立项分析，是信息系统声明周期的第一个阶段。</p><h2 id="信息系统战略规划">信息系统战略规划</h2><p><img src="../image/post/image-20240505103829988.png" alt="image-20240505103829988"></p><p>一个企业信息系统的战略规划可分为上面三个阶段。</p><ul><li>第一阶段：以数据处理为核心，围绕职能部门需求<ul><li>企业系统规划法BSP</li><li>关键成功因素法CSF</li><li>战略集合转化法SST</li></ul></li><li>第二阶段：以企业内部MIS（管理信息系统）为核心，围绕企业整体需求<ul><li>战略数据规划法SDP</li><li>信息工程法IE</li><li>战略栅格法SG</li></ul></li><li>第三阶段：综合考虑企业内外环境，以集成为核心，围绕企业战略需求<ul><li>价值链分析法VCA</li><li>战略一致性模型SAM</li></ul></li></ul><h2 id="企业应用集成EAI">企业应用集成EAI</h2><p>特点：</p><ol><li>表示集成：即界面集成，是一种黑盒集成，将多个信息系统的界面集成在一起</li><li>数据集成：一种白盒集成，把不同来源、格式、特点性质的数据在逻辑上或者物理上有机的集中，从而为企业提供全面的数据共享</li><li>控制集成：一种黑盒集成，业务逻辑层次的集成</li><li>业务流程集成：一种过程集成，最彻底的、综合的集成</li></ol><p>应用集成的交换方式：</p><ul><li>共享数据库：让多个应用系统通过直接共享数据库的方式进行数据交换</li><li>消息传递：适用于数据量小，但要求频繁、立即、可靠、异步地数据交换</li><li>文件传输：一次性的传送大量信息，即时性低、交换频度小</li></ul><p>企业集成平台：</p><p>支持企业集成的支撑环境，包括硬件、软件、软件工具和系统。</p><p>基本功能：</p><ol><li>通信服务：提供分布式环境下透明的同步/异步通信服务功能，无需关心具体的操作系统和应用程序所处的网络物理位置</li><li>信息集成服务：为应用提供透明的信息访问服务</li><li>应用集成服务：通过高层应用编程接口来实现对相应应用程序的访问</li><li>二次开发工具：帮助用户开发特定应用程序的支持工具</li><li>平台运行管理工具：平台的运行管理和控制模块，负责企业集成平台系统的静态和动态配置、维护、管理。</li></ol><p>企业信息集成的划分：</p><ol><li>企业内部的集成内容：<ul><li>技术平台的集成</li><li>数据的集成</li><li>应用系统的集成</li><li>业务过程的集成</li></ul></li><li>企业外部的信息集成<ul><li>通过门户网站和互联网实现公众、社会团体、社会和客户的互动</li><li>通过与合作伙伴信息系统的对接，建立动态的企业联盟</li></ul></li></ol><h2 id="电子商务">电子商务</h2><p>参与电子商务的实体：</p><ul><li>顾客</li><li>商户</li><li>银行</li><li>认证中心</li></ul><p>模式：</p><ul><li>B2B</li><li>B2C</li><li>C2C</li><li>O2O</li></ul><h1>后记</h1><blockquote><p>才感春来忽至夏，灯与河川五月间。</p></blockquote>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>软考-6计算机其他基础知识</title>
+      <link href="/posts/3ebaca61.html"/>
+      <url>/posts/3ebaca61.html</url>
+      
+        <content type="html"><![CDATA[<h1>前言</h1><p>内容：</p><ul><li>主要和系统工程相关（几乎不考）</li></ul><h1>中论</h1><p>略</p><p>相关资料见PPT<code>6、其他计算机系统基础知识</code></p><h1>后记</h1><blockquote><p>有些事情只能做给自己看，做给别人看的是表演。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软考inG </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 软考 </tag>
+            
+            <tag> 文老师 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>软考-6计算机其他基础知识</title>
+      <link href="/posts/3ebaca61.html"/>
+      <url>/posts/3ebaca61.html</url>
+      
+        <content type="html"><![CDATA[<h1>前言</h1><p>内容：</p><ul><li>主要和系统工程相关（几乎不考）</li></ul><h1>中论</h1><p>略</p><p>相关资料见PPT<code>6、其他计算机系统基础知识</code></p><h1>后记</h1><blockquote><p>有些事情只能做给自己看，做给别人看的是表演。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 软考inG </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 软考 </tag>
+            
+            <tag> 文老师 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>JVM学习-调优篇（上）</title>
+      <link href="/posts/b9419394.html"/>
+      <url>/posts/b9419394.html</url>
+      
+        <content type="html"><![CDATA[<h1>前言</h1><p>视频教程：<a href="https://www.bilibili.com/video/BV1Dz4y1A7FB?p=2&amp;vd_source=85ac5ee1b07df12a44b648a8751d30f6">https://www.bilibili.com/video/BV1Dz4y1A7FB?p=2&amp;vd_source=85ac5ee1b07df12a44b648a8751d30f6</a></p><h1>相关知识点</h1><h2 id="案例篇章-OOM">案例篇章-OOM</h2><h3 id="堆溢出">堆溢出</h3><p><strong>报错信息</strong></p><p>java.lang.OutOfMemoryError: Java heap space</p><p><strong>JVAM参数配置</strong></p><p>-XX:+PrintGCDetails -XX:MetaspaceSize=64m -XX:+HeapDumpOnOutOfMemoryError  -XX:HeapDumpPath=heap/heapdump.hprof -XX:+PrintGCDateStamps -Xms200M  -Xmx200M  -Xloggc:log/gc-oomHeap.log</p><p><strong>原因及解决方案</strong></p><ul><li>原因<ul><li>代码中可能存在大对象分配</li><li>可能存在内存泄漏，导致在多次GC之后，还是无法找到一块足够大的内存容纳当前对</li></ul></li><li>解决方法<ul><li>检查是否存在大对象的分配，最有可能的是大数组分配</li><li>通过jmap命令，把堆内存dump下来，使用MAT等工具分析一下，检查是否存在内存泄漏的问题</li><li>如果没有找到明显的内存泄漏，使用 -Xmx 加大堆内存</li><li>还有一点容易被忽略，检查是否有大量的自定义的 Finalizable 对象，也有可能是框架内部提供的，考虑其存在的必要性</li></ul></li></ul><h3 id="元空间溢出">元空间溢出</h3><p><strong>报错信息</strong></p><p>java.lang.OutOfMemoryError: Metaspace</p><p><strong>参数配置</strong></p><p>-XX:+PrintGCDetails -XX:MetaspaceSize=60m -XX:MaxMetaspaceSize=60m -Xss512K -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=heap/heapdumpMeta.hprof  -XX:SurvivorRatio=8 -XX:+TraceClassLoading -XX:+TraceClassUnloading -XX:+PrintGCDateStamps  -Xms60M  -Xmx60M -Xloggc:log/gc-oomMeta.log</p><p><strong>原因及解决方案</strong></p><p>JDK8后，元空间替换了永久代，元空间使用的是本地内存</p><ul><li><p>原因</p><ul><li>运行期间生成了大量的代理类，导致方法区被撑爆，无法卸载</li></ul><ol start="2"><li>应用长时间运行，没有重启</li><li>元空间内存设置过小</li></ol></li><li><p>解决方案</p><ul><li>检查是否永久代空间或者元空间设置的过小</li></ul><ol start="2"><li>检查代码中是否存在大量的反射操作</li><li>dump之后通过mat检查是否存在大量由于反射生成的代理类</li><li>如果加载同一个代理类即可，可以创建对象以后调用对象的<code>setUseCache(true)</code>方法，</li></ol><blockquote><p>选择为true的话，使用和更新一类具有相同属性生成的类的静态缓存，而不会在同一个类文件还继续被动态加载并视为不同的类，这个其实跟类的equals()和hashCode()有关，它们是与cglib内部的class cache的key相关的。</p></blockquote></li></ul><h3 id="GC-overhead-limit-exceeded">GC overhead limit exceeded</h3><p><strong>报错信息</strong></p><p>GC overhead limit exceeded</p><p><strong>原因及解决方案</strong></p><ul><li>原因<ul><li><strong>超过98%的时间用来做GC并且回收了不到2%的堆内存时会抛出此异常</strong>，本质是一个预判性的异常，抛出该异常时系统没有真正的内存溢出。</li></ul></li><li>解决方案<ul><li>检查项目中是否有大量的死循环或有使用大内存的代码，优化代码</li><li>添加参数 <code>-XX:-UseGCOverheadLimit</code> 禁用这个检查，其实这个参数解决不了内存问题，只是把错误的信息延后，最终出现 java.lang.OutOfMemoryError: Java heap space</li><li>dump内存，检查是否存在内存泄漏，如果没有，加大内存</li></ul></li></ul><h3 id="线程溢出">线程溢出</h3><p><strong>报错信息</strong></p><p>java.lang.OutOfMemoryError : unable to create new native Thread</p><p><strong>原因及解决方案</strong></p><ul><li><p>原因</p><ul><li><p>出现这种异常，基本上都是创建了大量的线程导致的</p></li><li><p>正常情况下，在相同物理内存下，减小这个值能生成更多的线程。但是操作系统对一个进程内的线程数还是有限制的,不能无限生成,经验值在3000~5000左右</p></li><li><p>能创建的线程数的具体计算公式如下：<br>(MaxProcessMemory - JVMMemory - ReservedOsMemory) / (ThreadStackSize) = Number of threads</p><blockquote><p>MaxProcessMemory 指的是进程可寻址的最大空间<br>JVMMemory     JVM内存<br>ReservedOsMemory 保留的操作系统内存<br>ThreadStackSize   线程栈的大小</p></blockquote></li><li><p>在Java语言里， 当你创建一个线程的时候，虚拟机会在JVM内存创建一个Thread对象同时创建一个操作系统线程，而这个系统线程的内存用的不是JVMMemory，而是系统中剩下的内存(MaxProcessMemory - JVMMemory - ReservedOsMemory)。</p></li><li><p>由公式得出结论：你给JVM内存越多，那么你能创建的线程越少，越容易发生java.lang.OutOfMemoryError: unable to create new native thread</p></li></ul></li><li><p>解决方案</p><ul><li><p>如果程序中有bug，导致创建大量不需要的线程或者线程没有及时回收，那么必须解决这个bug，修改参数是不能解决问题的。</p></li><li><p>如果程序确实需要大量的线程，现有的设置不能达到要求，那么可以通过修改MaxProcessMemory，JVMMemory，ThreadStackSize这三个因素，来增加能创建的线程数。</p><ul><li>MaxProcessMemory 使用64位操作系统</li><li>JVMMemory  减少JVMMemory的分配</li><li>ThreadStackSize 减小单个线程的栈大小</li></ul><blockquote><p>经实测，在32位windows系统下较为严格遵守；64位系统下只能保证正/负相关性，甚至说相关性也不能保证。即：<br>在测试的过程中，64位操作系统下调整Xss的大小并没有对产生线程的总数产生影响，程序执行到极限的时候，操作系统会死机。无法看出效果</p></blockquote></li><li><p>线程总数也受到系统空闲内存和操作系统的限制，检查是否该系统下有此限制：</p><ul><li><p>/proc/sys/kernel/pid_max          系统最大pid值，在大型系统里可适当调大</p></li><li><p>/proc/sys/kernel/threads-max     系统允许的最大线程数</p></li><li><p>maxuserprocess（ulimit -u）   系统限制某用户下最多可以运行多少进程或线程</p></li><li><p>/proc/sys/vm/max_map_count</p><blockquote><p>max_map_count文件包含限制一个进程可以拥有的VMA(虚拟内存区域)的数量。虚拟内存区域是一个连续的虚拟地址空间区域。在进程的生命周期中，每当程序尝试在内存中映射文件，链接到共享内存段，或者分配堆空间的时候，这些区域将被创建。调优这个值将限制进程可拥有VMA的数量。限制一个进程拥有VMA的总数可能导致应用程序出错，因为当进程达到了VMA上线但又只能释放少量的内存给其他的内核进程使用时，操作系统会抛出内存不足的错误。如果你的操作系统在NORMAL区域仅占用少量的内存，那么调低这个值可以帮助释放内存给内核用。</p></blockquote></li></ul></li></ul></li></ul><h1>面试题</h1><p><strong>说到内存泄漏，问有没有碰到，内存泄漏怎么解决？（拼多多）<br>内存泄漏是怎么造成的？（拼多多、字节跳动）<br>如何理解内存泄漏问题？有哪些情况会导致内存泄露？如何解决？ (阿里)</strong></p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> JVMinG </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> JVM </tag>
+            
+            <tag> 后端开发 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>软考-5.3网络规划-网络存储</title>
       <link href="/posts/a80158b0.html"/>
       <url>/posts/a80158b0.html</url>
