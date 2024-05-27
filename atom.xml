@@ -6,7 +6,7 @@
   <link href="https://jovehawking.fun/atom.xml" rel="self"/>
   
   <link href="https://jovehawking.fun/"/>
-  <updated>2024-05-21T12:37:04.184Z</updated>
+  <updated>2024-05-27T13:18:25.466Z</updated>
   <id>https://jovehawking.fun/</id>
   
   <author>
@@ -17,11 +17,80 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>软考-13.1软件架构概述-构件技术</title>
+    <link href="https://jovehawking.fun/posts/8c224547.html"/>
+    <id>https://jovehawking.fun/posts/8c224547.html</id>
+    <published>2024-05-27T12:14:20.000Z</published>
+    <updated>2024-05-27T13:18:25.466Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>内容：</p><ul><li>软件架构概述</li><li>构件技术</li></ul><h1 id="中论"><a href="#中论" class="headerlink" title="中论"></a>中论</h1><h2 id="软件架构概述"><a href="#软件架构概述" class="headerlink" title="软件架构概述"></a>软件架构概述</h2><p>软件架构：从需求分析到软件设计之间的过渡过程。</p><p>架构设计：需求分配，将满足需求的职责分配到组件上。</p><p>软件架构为软件系统提供了一个结构、行为和属性的高级抽象，由构件的描述、构件的相互作用（连接件）、指导构件集成的模式以及这些模式的约束组成。</p><p>软件架构不仅指定了系统的组织结构和拓扑结构，并显示了系统需求和构件之间的对应关系，提供了一些设计决策的基本原理。</p><p>研究软件架构的根本目的：解决好软件的复用、质量和维护问题。</p><p>软件架构设计：包括提出架构模型、产生架构设计和进行设计评审等活动。</p><p>架构设计主要关注：软件组件的结构、属性和交互作用，并通过多种视图全面描述特定系统的架构。</p><p>软件建构能够在设计变更相关容易的阶段考虑系统结构的可选方案，便于技术人员与非技术人员就软件设计进行交互，能够展现软件的结构、属性和内部交互关系。</p><p>软件架构是项目干系人进行交流的手段，明确了对系统实现的约束条件，决定了开发和维护组织的组织结构，制约着系统的质量属性。</p><p>软件架构使推理和控制的更改更加简单，有助于循序渐进的原型设计，可以作为培训的基础。</p><p>软件架构是可传递和可复用的模型，通过研究软件架构可以预测软件的质量。</p><h2 id="软件架构生命周期"><a href="#软件架构生命周期" class="headerlink" title="软件架构生命周期"></a>软件架构生命周期</h2><ol><li><p>需求分析阶段</p><p> 需求分析和SA设计面临的是不同对象，一个是问题空间，一个是解空间。从软件需求模型向SA模型的转换主要关注两个问题：如何根据需求模型构建SA模型；如何保证模型转换的可追踪性。</p></li><li><p>设计阶段</p><p> SA研究关注的最早和最多的阶段。这一阶段的SA主要研究：SA模型的描述、SA模型的设计与分析方法、对SA设计经验的总结和复用。（有关SA模型描述的研究主要分为三个层次：SA的基本概念；体系结构描述语言ADL、SA模型的多视图表示）</p></li><li><p>实现阶段</p><p> 为了有效实现SA设计向实现的转换，实现阶段的研究主要表现在以下方面：</p><ul><li>研究基于SA的开发过程支持</li><li>寻求从SA向实现过渡的途径</li><li>研究基于SA的测试技术</li></ul></li><li><p>构件组装阶段</p><p> 在SA设计模型的指导下，可复用构建的组装可以在较高层次上实现系统，并能够提高系统实现的效率。研究内容主要包括两方面</p><ul><li>如何支持可复用构件的互联</li><li>在组装过程中，如何检测并消除体系结构适配的问题。</li></ul></li><li><p>部署阶段</p><ul><li>提供高层的体系结构视图来描述部署阶段的软硬件模型</li><li>基于SA模型可以分析部署方案的质量属性，从而选择合理的部署方案</li></ul></li><li><p>后开发阶段</p><p> 软件部署安装之后的阶段。这一阶段SA研究主要围绕维、演化、复用等方面。</p><ul><li>动态软件体系结构。</li><li>体系结构恢复与重建。</li></ul></li></ol><h2 id="构件"><a href="#构件" class="headerlink" title="构件"></a>构件</h2><p>基本概念：</p><ul><li>构件是一个独立可交付的功能单元，外界通过接口访问其提供的服务</li><li>构件由一组通常需要同时部署的原子构件组成。<ul><li>一个原子构件就是一个模块儿和一组资源。</li><li>原子构件是部署、版本控制和替换的基本单位。</li></ul></li><li>构件和原子构件的区别：大多数原子构件永远都不会被单独部署，尽管可以被单独部署。大多数原子构件都属于一个构件家族，一次部署往往涉及到整个家族。</li><li>一个模块是不带单独资源的原子构件</li><li>一个单独的包被编译成多个单独的类的文件</li><li>模块是一组类和可能的非面向对象的结构体</li></ul><p>特点：</p><ul><li>独立部署单元</li><li>可作为第三方的组装单元</li><li>没有（外部的）可见状态</li></ul><p>一个构件可以包含多个类元素，但是一个类元素只能属于一个构件。</p><p>构件接口：</p><p>接口标准化是对接口中的消息的格式、模式和协议的标准化。不是将接口格式化为参数化操作的集合，而是关注输入输出的消息的标准化。</p><p>面向构件的编程（COP）</p><ul><li>多态性（可替代性）</li><li>模块封装性（高层次信息的隐藏）</li><li>后期的绑定和装载（部署的独立性）</li><li>安全性（类型和模块安全性）</li></ul><p>构件技术</p><p>利用某种编程手段，将人们关心的但又不便于让最终用户直接操作的细节进行封装，同时对各种业务逻辑规则进行了实现。国际上常用构件标准的三大流派：</p><ol><li><p>EJB：实现应用中关键的业务逻辑，创建基于构件的企业级应用程序。</p><p> 分别是：</p><ul><li>会话Bean</li><li>实体Bean</li><li>消息驱动Bean</li></ul></li><li><p>COM、DCOM、COM+</p></li><li><p>CORBA标准：主要分成三个层次</p><ul><li>对象请求代理：最底层的对象请求代理ORB，规定了分布对象的定义（接口）和语言映射，实现了对象间的通信和互操作，是分布对象系统中的“软总线”。</li><li>公共对象服务：在ORB之上定义了很多公共服务。</li><li>公共设施：最上层的公共设施则定义了组件框架，提供可直接为业务对象使用的服务，规定业务对象有效协作所需的协定规则。</li></ul></li></ol><h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><blockquote><p>俱怀逸兴壮思飞，欲上青天揽明月。</p></blockquote>]]></content>
+    
+    
+    <summary type="html">文老师13.1软件架构概述-构件技术</summary>
+    
+    
+    
+    <category term="软考inG" scheme="https://jovehawking.fun/categories/%E8%BD%AF%E8%80%83inG/"/>
+    
+    
+    <category term="软考" scheme="https://jovehawking.fun/tags/%E8%BD%AF%E8%80%83/"/>
+    
+    <category term="文老师" scheme="https://jovehawking.fun/tags/%E6%96%87%E8%80%81%E5%B8%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>软考-12项目管理</title>
+    <link href="https://jovehawking.fun/posts/1d301166.html"/>
+    <id>https://jovehawking.fun/posts/1d301166.html</id>
+    <published>2024-05-23T11:57:20.000Z</published>
+    <updated>2024-05-23T12:00:43.845Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>内容：</p><ul><li>进度管理</li></ul><h1 id="中论"><a href="#中论" class="headerlink" title="中论"></a>中论</h1><p>略。改版以后不是重点，看看PPT看看定义、概念即可，计算不需要掌握。</p><h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><blockquote><p>世间浮云何足问，不如高卧且加餐。</p></blockquote>]]></content>
+    
+    
+    <summary type="html">文老师12项目管理</summary>
+    
+    
+    
+    <category term="软考inG" scheme="https://jovehawking.fun/categories/%E8%BD%AF%E8%80%83inG/"/>
+    
+    
+    <category term="软考" scheme="https://jovehawking.fun/tags/%E8%BD%AF%E8%80%83/"/>
+    
+    <category term="文老师" scheme="https://jovehawking.fun/tags/%E6%96%87%E8%80%81%E5%B8%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>软考-11.3设计模式</title>
+    <link href="https://jovehawking.fun/posts/ebb747fb.html"/>
+    <id>https://jovehawking.fun/posts/ebb747fb.html</id>
+    <published>2024-05-22T11:45:20.000Z</published>
+    <updated>2024-05-22T12:14:56.260Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>内容：</p><ul><li>设计模式</li></ul><h1 id="中论"><a href="#中论" class="headerlink" title="中论"></a>中论</h1><h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><p>架构模式：软件设计中的高层决策，比如C/S架构、B/S架构就属于架构模式</p><p>设计模式：每一个设计模式描述了一个在我们周围不断重复发生的问题，以及该问题的解决方案的核心。四个基本要素：模式名称、问题（应该在何时使用模式）、解决方案（设计的内容）、效果（模式应用的效果）</p><p>惯用法：最低层的模式，关注软件系统的设计与实现，实现时通过某种特定的程序设计语言来描述构件与构件之间的关系。</p><h3 id="创建型设计模式"><a href="#创建型设计模式" class="headerlink" title="创建型设计模式"></a>创建型设计模式</h3><p><img src="../image/post/image-20240522201130341.png" alt="image-20240522201130341"></p><h3 id="结构型设计模式"><a href="#结构型设计模式" class="headerlink" title="结构型设计模式"></a>结构型设计模式</h3><p><img src="../image/post/image-20240522201146286.png" alt="image-20240522201146286"></p><h3 id="行为型设计模式"><a href="#行为型设计模式" class="headerlink" title="行为型设计模式"></a>行为型设计模式</h3><p><img src="../image/post/image-20240522201204398.png" alt="image-20240522201204398"></p><p><img src="../image/post/image-20240522201213274.png" alt="image-20240522201213274"></p><h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><blockquote><p>欲买桂花同载酒，终不似，少年游。</p></blockquote>]]></content>
+    
+    
+    <summary type="html">文老师11.3设计模式</summary>
+    
+    
+    
+    <category term="软考inG" scheme="https://jovehawking.fun/categories/%E8%BD%AF%E8%80%83inG/"/>
+    
+    
+    <category term="软考" scheme="https://jovehawking.fun/tags/%E8%BD%AF%E8%80%83/"/>
+    
+    <category term="文老师" scheme="https://jovehawking.fun/tags/%E6%96%87%E8%80%81%E5%B8%88/"/>
+    
+  </entry>
+  
+  <entry>
     <title>软考-11.2统一建模语言UML</title>
     <link href="https://jovehawking.fun/posts/8f16b042.html"/>
     <id>https://jovehawking.fun/posts/8f16b042.html</id>
     <published>2024-05-21T12:11:20.000Z</published>
-    <updated>2024-05-21T12:37:04.184Z</updated>
+    <updated>2024-05-21T12:38:57.358Z</updated>
     
     <content type="html"><![CDATA[<h1>前言</h1><p>内容：</p><ul><li>统一建模语言UML</li></ul><h1>中论</h1><h2 id="统一建模语言UML">统一建模语言UML</h2><p>UML：一种可视化的建模语言，而非程序设计语言，支持从需求分析开始的软件开发的全过程。</p><p>UML主要包括三个部分</p><ul><li>构造块：UML有三种基本的构造块，事物、关系、图<ul><li>事物：重要组成部分</li><li>关系：把事物紧密联系在一起</li><li>图：多个互相关联的事物的集合</li></ul></li><li>公共机制：达到特定目标的公共UML方法</li><li>规则：构造块如何放在一起的规定</li></ul><hr><p><img src="../image/post/image-20240521201517664.png" alt="image-20240521201517664"></p><p>事物：</p><ul><li>结构事物：模型的静态部分，如接口、类、用例、构件等</li><li>行为事物：模型的动态部分，如交互、活动、状态机</li><li>分组事物：模型的组织部分，如包</li><li>注释事物：模型的解释部分，依附于一个元素或一个元素之上对其进行约束或解释的简单符号</li></ul><hr><p><img src="../image/post/image-20240521201749997.png" alt="image-20240521201749997"></p><p>关系：</p><ul><li>依赖：一个事物的语义依赖于另一个事物的语义的变化而变化</li><li>关联：一种结构关系，描述了一组链，链是对象之间的连接。分为组合和聚合，都是部分和整体的关系，其中组合事物之间关系更强。</li><li>泛化：一般/特殊的关系，子类和父类之间的关系</li><li>实现：一个类元指定了另一个类元保证执行的契约</li></ul><h3 id="UML2-0（了解即可）">UML2.0（了解即可）</h3><p><img src="../image/post/image-20240521202006298.png" alt="image-20240521202006298"></p><h3 id="类图">类图</h3><p>静态图，为系统的静态设计视图，展现一组对象、接口、协作和他们之间的关系</p><p><img src="../image/post/image-20240521202049719.png" alt="image-20240521202049719"></p><h3 id="对象图">对象图</h3><p>静态图，展现某一时刻一组对象及它们之间的关系，为类图的某一快照。</p><p><img src="../image/post/image-20240521202151965.png" alt="image-20240521202151965"></p><h3 id="用例图">用例图</h3><p>静态图，展现一组用例、参与者以及它们之间的关系。</p><p>用例之间的关系：扩展、包含、泛化</p><p><img src="../image/post/image-20240521202248969.png" alt="image-20240521202248969"></p><h3 id="序列图">序列图</h3><p>顺序图、动态图。是场景的图形化表示，描述了以时间顺序组织的对象之间的交互活动。</p><p>有同步消息（实心三角箭头表示【阻塞调用、调用者中止执行、等待控制权返回、需要等待返回消息】）、异步消息（空心三角箭头表示【发出消息后继续执行、不引起调用者阻塞、不等待返回消息】）、返回消息（从右到左的虚线箭头表示）三种</p><p><img src="../image/post/image-20240521202438503.png" alt="image-20240521202438503"></p><h3 id="通信图">通信图</h3><p>动态图。即协作图，强调参加交互的对象的组织</p><p><img src="../image/post/image-20240521202618986.png" alt="image-20240521202618986"></p><h3 id="状态图">状态图</h3><p>动态图。以一个状态机的形式展现，描述单个对象在多个用例中的行为，包括简单状态和组合状态。转换可以通过事件触发器触发，事件触发后相应的监护条件会进行检查。</p><p>状态图中的转换和状态是两个独立的概念</p><p><img src="../image/post/image-20240521202746283.png" alt="image-20240521202746283"></p><h3 id="活动图">活动图</h3><p>动态图。特殊的状态图，展现一个系统内从一个活动到另一个活动的流程。活动的分岔和汇合线是一条水平粗线，每个分岔的分支数代表了可同时运行的线程数。</p><p>（牢记下图中并发分叉、并发汇合、监护表达式、分支、流等名词）</p><p><img src="../image/post/image-20240521202955588.png" alt="image-20240521202955588"></p><h3 id="构件图（组件图）">构件图（组件图）</h3><p>静态图。为系统静态实现视图，展现一组构件之间的组织和依赖</p><p><img src="../image/post/image-20240521203037125.png" alt="image-20240521203037125"></p><h3 id="部署图">部署图</h3><p>静态图。系统静态部署视图，部署图物理模块的节点分布。</p><p><img src="../image/post/image-20240521203118873.png" alt="image-20240521203118873"></p><h3 id="UML-4-1视图">UML 4+1视图</h3><ol><li>逻辑视图。逻辑视图也称为设计视图，它表示了设计模型在架构方面具有重要意义的部分，即类、子系统、包和用例实现的子集。</li><li>进程视图。进程视图是可执行线程和进程作为活动类的建模，它是逻辑视图的一次执行实例，描述了并发与同步结构。</li><li>实现视图。实现视图对组成基于系统的物理代码的文件和构件进行建模。</li><li>部署视图。部署视图把构件部署到一组物理节点上，表示软件到硬件的映射和分布结构。</li><li>用例视图。用例视图是最基本的需求分析模型。</li></ol><p><img src="../image/post/image-20240521203509262.png" alt="image-20240521203509262"></p><h1>后记</h1><blockquote><p>海到无边天作岸，山登绝顶我为峰。</p></blockquote>]]></content>
     
@@ -409,75 +478,6 @@ description: 文老师信息系统基础知</summary>
     <category term="JVM" scheme="https://jovehawking.fun/tags/JVM/"/>
     
     <category term="后端开发" scheme="https://jovehawking.fun/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>软考-5.3网络规划-网络存储</title>
-    <link href="https://jovehawking.fun/posts/a80158b0.html"/>
-    <id>https://jovehawking.fun/posts/a80158b0.html</id>
-    <published>2024-04-30T11:41:57.000Z</published>
-    <updated>2024-04-30T13:18:22.674Z</updated>
-    
-    <content type="html"><![CDATA[<h1>前言</h1><p>内容（知识点杂）：</p><ul><li>IPv6</li><li>网络规划与设计</li></ul><h1>中论</h1><h2 id="IPv6">IPv6</h2><p>特点：</p><ul><li>IPv6地址长度为128位</li><li>报文头部选项部分有所变化，使路由器可以简单过滤选项而不做任何处理，加快了报文处理速度</li><li>安全性提高，增加了身份认证和隐私权</li><li>支持更多的服务类型</li><li>允许协议继续演变</li></ul><p>IPv4到IPv6过渡时期主要采用的三种基本技术</p><ul><li>双协议栈：主机同时运行IPv4和IPv6两套协议栈。</li><li>隧道技术：在IPv4网络之上建立一条能够传输IPv6的数据报隧道，比如将IPv6整体当做IPv4的数据报进行发送。</li><li>翻译技术：利用专门的翻译设备（比如转换网关），在纯IPv4和纯IPv6网络之间转换IP报头的地址，根据协议不同对分组做相应的语义转换。</li></ul><h2 id="网络规划与设计">网络规划与设计</h2><p><img src="../image/post/image-20240430203820396.png" alt="image-20240430203820396"></p><p>三层模型：核心层、汇聚层、接入层</p><ul><li>核心层：提供不同区域之间的最佳路由和高速数据传送</li><li>汇聚层：将网络业务连接到接入层，并实施与安全、流量、负载和路由相关的策略</li><li>接入层：为用户提供本地网段访问应用系统的能力，主要负责用户信息的收集工作和管理功能</li></ul><p><img src="../image/post/image-20240430204152071.png" alt="image-20240430204152071"></p><p><strong>建筑物综合布线系统PDS</strong></p><ul><li>工作区子系统：实现工作区终端设备到水平子系统的信息插座之间的互联</li><li>水平布线子系统：实现信息插座和管理子系统的连接</li><li>设备间子系统：实现中央主配线架与各种不同设备之间的链接</li><li>垂直干线子系统：实现各楼层设备间子系统之间的互联</li><li>管理子系统：连接各楼层水平布线子系统和垂直干缆线（不是垂直干线子系统），连接控制其他子系统</li><li>建筑群子系统：各个建筑物通信系统之间的关联</li></ul><blockquote><p>工作区-&gt;水平布线-&gt;管理子系统-&gt;垂直干线子系统-&gt;设备间子系统-&gt;建筑群子系统</p></blockquote><h2 id="磁盘冗余阵列">磁盘冗余阵列</h2><p>RAID：将数据分散在不同磁盘中，可并行读取、可冗余存储，提高磁盘访问速度，保障数据安全性</p><ul><li>RAID0：将数据分散存储在不同磁盘中，没有提供冗余和错误修复技术</li><li>RAID1：在成对的独立磁盘上产生互为备份的数据，增加存储可靠性</li><li>RAID2：将数据条块化分布于不同硬盘上，使用海明码校验</li><li>RAID3：奇偶校验，用单块磁盘存储奇偶校验信息</li><li>RAID5：交叉存储数据并奇偶校验信息</li><li>RAIDO+1：两个RAID0</li><li>RAID1+0：两个DAID1</li></ul><blockquote><p>0 1 5 比较重要</p></blockquote><p><img src="../image/post/image-20240430205454314.png" alt="image-20240430205454314"><img src="../image/post/image-20240430205517025.png" alt="image-20240430205517025"></p><p><img src="../image/post/image-20240430205605613.png" alt="image-20240430205605613"></p><h2 id="网络存储技术">网络存储技术</h2><ul><li>直接附加存储（DAS）：将存储设备通过SCSI接口直接连接到一台服务器上使用，存储操作依赖服务器，不带有任何存储操作系统<ul><li>问题：在传递距离、连接数量、传输速率等方面都受到限制，容量难以扩展升级</li></ul></li><li>网络附加存储（NAS）：通过网络接口与网络直接相连，用户通过网络访问，有独立的存储系统。客户机与存储设备之间的数据访问不再需要文件服务器的干预，响应速度快且传输速率高<ul><li>性能特点：小文件级的共享存取</li></ul></li><li>存储区域网（SAN）：通过专有交换机将磁盘阵列与服务器连接起来的高速专用子网，采用块（block）级别存储。将存储设备从传统的以太网中分离出来，成为独立的存储区域网络</li></ul><h2 id="其他概念">其他概念</h2><ul><li><p>网络地址翻译NAT：将地址映射到公有网IP上的技术</p></li><li><p>默认网关：一个主机可以有多个网关。如果一个主机找不到可用网关，就把数据包发送给默认指定的网关。默认网关的IP地址必须与本机IP地址在同一个网段内，即同网络号</p></li><li><p>虚拟局域网VLAN：一组逻辑上的设备和用户</p></li><li><p>虚拟专用网VPN：在公用网络上建立专用网络的技术，VPN网络的任意两个节点之间没有端到端的物理连接，而是架构在公有网络服务商所提供的网络平台上</p></li><li><p>PPP：安全认证</p></li><li><p>冲突域和广播域：路由器可以阻断广播域和冲突域，交换机只能阻断冲突域；一个路由器下可以划分多个广播域和多个冲突域，一个交换机下整体是一个广播域，但可以划分多个冲突域；物理层设备集线器下整体作为一个冲突域和一个广播域。</p></li><li><p>URL：<a href="http://www.xxx.com">www.xxx.com</a>。 www为主机名，xxx.com为域名；当URL地址上没有明确协议时，默认使用http协议；主机名+域名=IP地址。</p></li></ul><h1>后记</h1><blockquote><p>世上没有白费的努力，也没有碰巧的成功，一切无心插柳，其实都是水到渠成。人生没有白走的路，也没白吃的苦，当下跨出去的每一步，都是未来的基石与铺垫。 ——————《南来北往》</p></blockquote>]]></content>
-    
-    
-    <summary type="html">文老师5.3网络规划-网络存储</summary>
-    
-    
-    
-    <category term="软考inG" scheme="https://jovehawking.fun/categories/%E8%BD%AF%E8%80%83inG/"/>
-    
-    
-    <category term="软考" scheme="https://jovehawking.fun/tags/%E8%BD%AF%E8%80%83/"/>
-    
-    <category term="文老师" scheme="https://jovehawking.fun/tags/%E6%96%87%E8%80%81%E5%B8%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>软考-5.2传输介质-通信方式-IP地址-子网划分</title>
-    <link href="https://jovehawking.fun/posts/f42c09a9.html"/>
-    <id>https://jovehawking.fun/posts/f42c09a9.html</id>
-    <published>2024-04-29T11:20:57.000Z</published>
-    <updated>2024-04-29T22:05:12.648Z</updated>
-    
-    <content type="html"><![CDATA[<h1>前言</h1><p>内容：</p><ul><li>传输介质（了解）</li><li>通信方式、同步方式和交换方式（重要）</li><li>IP地址（重点）</li><li>子网划分（重点）</li><li>超网（了解）</li></ul><h1>中论</h1><h2 id="传输介质">传输介质</h2><ul><li><p>双绞线：俗称网线；传输距离在100m以内</p><ul><li>无屏蔽双绞线UTP。CAT3（3类UTP；10Mbps）、CAT5（5类UTP；100Mbps）、CAT5E（超5类UTP；1000Mbps）、CAT6（6类UTP；1000Mbps）</li><li>屏蔽双绞线STP。相较于UTP增加了一层屏蔽层，提高了传输的可靠性。</li><li>网线安装顺序（记住位置）</li></ul><p><img src="../image/post/image-20240429205538714.png" alt="image-20240429205538714"></p></li><li><p>光纤：光信号传输</p><ul><li>多模光纤MMF：可以同时传输多种不同的信号；采用发光二极管LED为光源；成本低；传输效率和可靠性也低；适合短距离传输</li><li>单模光纤SMF：一般只能传输一种信号；采用激光二极管LD作为光源；支持激光信号的传播；成本高；传输距离远；可靠性高。</li></ul></li><li><p>无线信道</p><ul><li>无线电波</li><li>红外光波</li></ul></li></ul><h2 id="通信方式、同步方式和交换方式（重要）">通信方式、同步方式和交换方式（重要）</h2><p><strong>通信方向</strong></p><ul><li>单工</li><li>半双工</li><li>全双工</li></ul><p><strong>同步方式</strong></p><ul><li>异步传输：发送方每发送一个字符，需要约定一个起始位和停止位插入到字符的起始和结尾处。</li><li>同步传输：以数据块为单位进行传输，当发送方要发送数据时，先发送一个同步帧；结束后又会有结束帧。</li></ul><p><strong>传输方式</strong></p><ul><li>串行传输：一根数据线，1bit发送</li><li>并行传输：多跟数据线，多bit发送</li></ul><p><strong>交换方式</strong>（重要）</p><ul><li>电路交换：通信双方建立一个专用电路；面向连接；实时性高；链路利用率低</li><li>报文交换：以报文为单位，存储转发模式（收到数据先存储，后校验，无误后转发）；有延迟；可靠性高；无连接</li><li>分组交换：以分组为单位，存储转发模式；时延小于报文交换<ul><li>数据报：目前主流交换方式；各个分组携带地址信息；自由选择不同的路由路径；接收方重新组装；无连接；不可靠</li><li>虚电路：通信双方建立一个虚拟的通信线路；空闲的时候这条线路也可以传输其他数据；面向连接；可靠</li><li>信元交换：异步传输模式ATM采用的交换模式；本质按照虚电路方式进行转发；信元固定长度的分组（共53B，其中5B为头部，48B为数据域）；面向连接；可靠</li></ul></li></ul><h2 id="IP地址（重点）">IP地址（重点）</h2><p>点分十进制表示。</p><p><strong>分类IP地址</strong></p><p>逻辑上将IP地址分为网络号和主机号，根据网络号位数的不同，将IP地址分为以下几类：</p><p><img src="../image/post/image-20240429211036717.png" alt="image-20240429211036717"></p><p><strong>无分类编址</strong></p><p>IP地址/网络号表示</p><p><strong>特殊IP地址</strong></p><p>公有地址：直接访问因特网的地址，全网唯一</p><p>私有地址：非注册地址，组织机构内部使用</p><p><img src="../image/post/image-20240429211301558.png" alt="image-20240429211301558"></p><p>其他特殊地址：</p><p><img src="../image/post/image-20240429211314083.png" alt="image-20240429211314083"></p><h2 id="子网划分（重点）">子网划分（重点）</h2><p>将IP地址按标准划分为A、B、C类后，进一步划分，即<strong>将主机号拿出即为作为子网号</strong>，就可以划分多个子网，此时IP地址组成：网络号+子网号+主机号</p><ul><li>网络号和子网号都为1，主机号都为0，这样的地址为子网掩码</li><li>子网号可以全0或全1，主机号不能为全0或全1，所以计算主机数时需要-2。</li></ul><h2 id="超网（了解）">超网（了解）</h2><p>就是划分子网的逆过程，将网络号取出几位作为主机号。</p><h1>后记</h1><blockquote><p>活得太清楚，本身就不是一件浪漫的事</p></blockquote>]]></content>
-    
-    
-    <summary type="html">文老师5.2传输介质-通信方式-IP地址-子网划分</summary>
-    
-    
-    
-    <category term="软考inG" scheme="https://jovehawking.fun/categories/%E8%BD%AF%E8%80%83inG/"/>
-    
-    
-    <category term="软考" scheme="https://jovehawking.fun/tags/%E8%BD%AF%E8%80%83/"/>
-    
-    <category term="文老师" scheme="https://jovehawking.fun/tags/%E6%96%87%E8%80%81%E5%B8%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>软考-5.1七层模型-局域网-TCPIP协议族</title>
-    <link href="https://jovehawking.fun/posts/785e391.html"/>
-    <id>https://jovehawking.fun/posts/785e391.html</id>
-    <published>2024-04-25T11:54:44.000Z</published>
-    <updated>2024-04-29T22:05:12.617Z</updated>
-    
-    <content type="html"><![CDATA[<h1>前言</h1><p>内容：</p><ul><li><p>网络相关功能分类</p></li><li><p>七层模型</p></li><li><p>局域网</p></li><li><p>广域网</p></li><li><p>TCP/IP协议（重点）</p></li><li><p>交换技术</p></li><li><p>路由技术</p></li></ul><h1>中论</h1><h2 id="网络相关功能分类">网络相关功能分类</h2><p>计算机网络的功能：数据通信、资源共享、管理集中化、实现分布式处理、负载均衡</p><p>网络性能指标：速率、带宽、吞吐量、时延、往返时间</p><p>网络非性能指标：费用、质量、标准化、可靠性、可扩展性、可升级性、易管理性和可维护性</p><p>通信技术是计算机网络的基础，信道可以分为物理信道和逻辑信道。</p><p>同时传递多路数据需要：复用技术和多址技术</p><p>新一代移动通信技术（5G），特点：</p><p>（1）基于OFDM优化的波形和多址接入</p><p>（2）实现可扩展的OFDM间隔参数配置</p><p>（3）OFDM加窗提高多路传输效率</p><p>（4）灵活框架设计</p><p>（5）大规模MIMO：最多256根天线</p><p>（6）毫米波：频率大约24GHz以上的频段</p><p>（7）频谱共享</p><p>（8）先进的信道编码技术</p><h2 id="OSI七层模型">OSI七层模型</h2><p><img src="../image/post/image-20240425215446097.png" alt="image-20240425215446097"></p><h2 id="局域网">局域网</h2><p>以太网：一种计算机局域网组网技术</p><p>以太网规范：IEEE 802.3。最小帧长64字节</p><p>无线局域网WLAN技术标准：IEEE 802.11</p><h2 id="广域网">广域网</h2><p>广域网相关技术：同步光网络、数字数据网、帧中继、异步传输技术</p><h2 id="TCP-IP协议">TCP/IP协议</h2><p>网络协议三要素：语义、语法、时序</p><p><strong>TCP/IP四层模型</strong></p><p><img src="../image/post/image-20240425215852145.png" alt="image-20240425215852145"></p><ul><li>网络层协议：<ul><li>IP：无连接、不可靠</li><li>ICMP：因特网控制报文协议</li><li>ARP和RARP：地址解析协议。ARP：IP转物理地址；RARP：物理地址转IP</li><li>IGMP：网络组管理协议，支持组播</li></ul></li><li>传输层协议：<ul><li>TCP：可靠的、全双工</li><li>UDP：不可靠、无连接</li></ul></li><li>应用层协议：<ul><li>FTP：可靠的文本协议</li><li>HTTP：超文本传输协议</li><li>SMTP和POP3：简单邮件传输协议</li><li>Telnet：远程连接协议</li><li>TFTP：不可靠、开销小的小文件传输协议</li><li>SNMP：简单网络管理协议</li><li>DHCP：动态主机配置协议</li><li>DNS：域名解析协议</li></ul></li></ul><p><strong>协议端口号对照表（掌握）</strong></p><p><img src="../image/post/image-20240425220659471.png" alt="image-20240425220659471"></p><h2 id="交换技术">交换技术</h2><p>交换机功能：</p><ul><li>集线功能</li><li>中继功能</li><li>桥接功能</li><li>隔离冲突域功能</li></ul><p>交换机需要实现的功能：</p><ul><li>转发路径学习</li><li>数据转发</li><li>数据泛洪</li><li>链路地址更新</li></ul><h2 id="路由技术">路由技术</h2><p>路由功能：</p><ul><li>异种网络互连</li><li>子网协议转换</li><li>数据路由</li><li>速率适配</li><li>隔离网络</li><li>报文分片和重组</li><li>备份、流量控制</li></ul><p>路由协议可分为内部网关协议（IGP）和外部网关协议（EGP）</p><p>网络建设工程可分为网络规划、网络设计和网络实施三个环节</p><h1>后记</h1><blockquote><p>人总要沉淀下来，过一段宁静而自醒的日子。</p></blockquote>]]></content>
-    
-    
-    <summary type="html">文老师5.1七层模型-局域网-TCPIP协议族</summary>
-    
-    
-    
-    <category term="软考inG" scheme="https://jovehawking.fun/categories/%E8%BD%AF%E8%80%83inG/"/>
-    
-    
-    <category term="软考" scheme="https://jovehawking.fun/tags/%E8%BD%AF%E8%80%83/"/>
-    
-    <category term="文老师" scheme="https://jovehawking.fun/tags/%E6%96%87%E8%80%81%E5%B8%88/"/>
     
   </entry>
   
