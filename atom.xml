@@ -6,7 +6,7 @@
   <link href="https://jovehawking.fun/atom.xml" rel="self"/>
   
   <link href="https://jovehawking.fun/"/>
-  <updated>2024-05-27T13:18:25.466Z</updated>
+  <updated>2024-05-28T12:35:32.571Z</updated>
   <id>https://jovehawking.fun/</id>
   
   <author>
@@ -17,13 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>软考-13.2软件架构风格</title>
+    <link href="https://jovehawking.fun/posts/1fe5a574.html"/>
+    <id>https://jovehawking.fun/posts/1fe5a574.html</id>
+    <published>2024-05-28T12:02:20.000Z</published>
+    <updated>2024-05-28T12:35:32.571Z</updated>
+    
+    <content type="html"><![CDATA[<h1>前言</h1><p>内容：</p><ul><li>软件架构风格</li></ul><h1>中论</h1><h2 id="软件架构风格">软件架构风格</h2><p>描述某一特定应用领域中系统组织方式的惯用模式。</p><p>架构风格定义一个系统家族，即一个架构定义、一个词汇表、一组约束。</p><ul><li><p>定义：用于描述系统的术语表和一组指导构建系统的规则</p></li><li><p>词汇表：包含一些构件和连接件类型</p></li><li><p>约束：系统如何将这些构件和连接件组合起来</p></li></ul><p>架构风格反映了领域中众多系统所共有的结构和语义特性，并指导如何将各个模块和子系统有效地组织成一个完整的系统。</p><p>软件设计的核心问题：能否达到架构级的软件复用。</p><h3 id="风格分类">风格分类</h3><p><strong>数据流风格</strong>：面向数据流，按照一定的顺序从前向后执行程序。代表的风格：批处理序列、管道-过滤器。</p><p><strong>调用/返回风格</strong>：构件之间存在互相调用的关系，一般是显示的调用。代表风格：主程序/子程序、面向对象、层次结构。</p><p><strong>独立构件风格</strong>：构件之间是相互独立的，不存在显式的调用关系，而是通过某个事件触发、异步的方式来执行。代表风格：进程通信、事件驱动系统（隐式调用）。</p><p><strong>虚拟机风格</strong>：自定义一套规则供使用者使用，使用者基于这个规则来开发构件，能够跨平台适配，代表风格：解释器，基于规则的系统。</p><p><strong>仓库风格</strong>：以数据为中心，所有的操作系统都是围绕建立的数据中心进行的，代表风格：数据库系统、超文本系统、黑板系统。</p><p><strong>数据流风格</strong></p><ul><li>批处理序列：构件为一系列固定顺序的计算单元，构件之间只通过数据传递交互。每个处理步骤是一个独立的程序，每一步必须在其前一步结束后才能开始，数据必须是完整的，以整体的方式传递。</li><li>管道-过滤器：每个构件都有一组输入和输出，构件读取输入的数据流，经过内部处理，产生输出数据流。前一个构件的输出作为后一个构件的输入，前后数据流关联。过滤器就是构件，连接件就是管道。</li></ul><blockquote><p>早期编译器就是采用的这种架构，要一步一步处理的，均可考虑此架构风格。</p><p>二者区别在于批处理前后构件不一定有关联，并且是作为整体传递，即必须前一个执行完才能执行下一个。管道-过滤器是前一个输出作为后一个输入，前面执行到部分可以开始下一个的执行。</p></blockquote><p><strong>调用/返回风格</strong></p><ul><li><p>主程序/子程序：单线程控制，把问题划分为若干个处理步骤，构件即为主程序和子程序，子程序通常可合成为模块。过程调用作为交互机制，充当连接件的角色。</p></li><li><p>面向对象：构件是对象，对象是抽象数据类型的实例。连接件即使对象间交互的方式，对象是通过函数和过程的调用来交互的。</p></li><li><p>层次结构：构件组成一个层次结构，连接件通过决定层间如何交互的协议来定义。每层为上一层提供服务，使用下一层的服务，只能见到与自己邻接的层。修改某一层，最多影响其相邻的两层（通常只能影响上层）。</p><ul><li><p>层次结构优点：</p><p>1、支持基于可增加抽象层的设计，允许将一个复杂问题分解成一个增量步骤序列的实现。</p><p>2、不同的层次处于不同的抽象级别，越靠近底层，抽象级别越高。</p><p>3、由于每一层最多只影响两层，同时只要给相邻层提供相同的接口，允许每层用不同的方法实现，同样为软件复用提供了强大的支持。</p></li><li><p>层次结构缺点：</p><p>1、并不是每个系统都可以很容易的划分为分层的模式。</p><p>2、很难找到一个合适的、正确的层次抽象方法。</p></li></ul></li></ul><p><strong>独立构件风格</strong></p><ul><li>进程通信：构件是独立的进程，连接件是消息传递。构件通常是命名过程，消息传递的方式可以是点对点、异步或同步方式，以及远程过程（方法）调用等</li><li>事件驱动系统（隐式调用）：构件不直接调用一个过程，而是触发或广播一一个或多个事件。构件中的过程在一个或多个事件中注册，当某个事件被触发时，系统自动调用在这个事件中注册的所有过程。一个事件的触发就导致了另一个模块中的过程调用。这种风格中的构件是匿名的过程，它们之间交互的连接件往往是以为过程之间的隐式调用来实现的。</li></ul><blockquote><p>主要优点是为软件复用提供了强大的支持，为构件的维护和演化带来了方便；缺点是构件放弃了对系统计算的控制。</p></blockquote><p><strong>虚拟机风格</strong></p><ul><li>解释器：通常包括一个完成解释工作的解释引擎、一个包含将被解释的代码的存储区、一个记录解释引擎当前工作状态的数据结构，以及一个记录源代码被解释执行的进度的数据结构。具有解释器风格的软件中含有一个虚拟机，可以仿真硬件的执行过程和一些关键应用，缺点是执行效率低。</li><li>基于规则的系统：包括规则集、规则解释器、规则/数据选择器和工作内存,一般用在人工智能领域和DSS中。</li></ul><p><strong>仓库（数据共享）风格</strong></p><ul><li>数据库系统：构件主要有两大类，一类是中央共享数据源，保存当前系统的 数据状态；另一类是多个独立处理单元，处理单元对数据元素进行操作。</li><li>黑板系统：包括知识源、黑板和控制三部分。知识源包括若干独立计算的不同单元，提供解决问题的知识。知识源响应黑板的变化，也只修改黑板；黑板是一个全局数据库，包含问题域空间的全部状态，是知识源相互作用的唯一 媒介；知识源响应是通过黑板状态的变化来控制的。黑板系统通常应用在对于解决问题没有确定性算法的软件中（信号处理、问题规划和编译器优化等）。</li><li>超文本系统：构件以网状链接方式相互连接，用户可以在构件之间进行按照人类的联想思维方式进行任意跳转到相关构件。是一种非线性的网状信息组织方法，它以节点为基本单位，链作为节点之间的联想式关联。通常应用在互联网领域。</li><li>现代编译器的集成开发环境一般采用数据仓库（即以数据为中心的架构风格） 架构风格进行开发，其中心数据就是程序的语法树。</li></ul><p><strong>闭环控制</strong></p><p>当软件被用来操作一个物理系统时，软件与硬件之间可以粗略的表示为一个反馈循环，这个反馈循环通过接受一定的输入，确定一系列的输出，最终使环境达到一个新的状态，适用于嵌入式系统，涉及连续的动作与状态。</p><p><img src="../image/post/image-20240528202759723.png" alt="image-20240528202759723"></p><p><strong>C2体系结构</strong></p><p>C2体系结构风格可以概括为：通过连接件绑定在一起的并行构件网络。</p><p>C2风格中的系统组织规则如下：</p><ol><li>系统中的构件和连接件都有一个顶部和一个底部；</li><li>构件的顶部应连接到某连接件的底部，构件的底部则应连接到某连接件的顶部，而构件与构件之间的直接连接是不允许的；</li><li>一个连接件可以和任意数目的其它构件和连接件连接；</li><li>当两个连接件进行直接连接时，必须由其中一个的底部到另一个的顶部。</li></ol><p><img src="../image/post/image-20240528203200091.png" alt="image-20240528203200091"></p><h3 id="记忆表格">记忆表格</h3><p><img src="../image/post/image-20240528203231528.png" alt="image-20240528203231528"></p><h1>后记</h1><blockquote><p>我来问道无馀说，云在青霄水在瓶。</p></blockquote>]]></content>
+    
+    
+    <summary type="html">文老师13.2软件架构风格</summary>
+    
+    
+    
+    <category term="软考inG" scheme="https://jovehawking.fun/categories/%E8%BD%AF%E8%80%83inG/"/>
+    
+    
+    <category term="软考" scheme="https://jovehawking.fun/tags/%E8%BD%AF%E8%80%83/"/>
+    
+    <category term="文老师" scheme="https://jovehawking.fun/tags/%E6%96%87%E8%80%81%E5%B8%88/"/>
+    
+  </entry>
+  
+  <entry>
     <title>软考-13.1软件架构概述-构件技术</title>
     <link href="https://jovehawking.fun/posts/8c224547.html"/>
     <id>https://jovehawking.fun/posts/8c224547.html</id>
     <published>2024-05-27T12:14:20.000Z</published>
-    <updated>2024-05-27T13:18:25.466Z</updated>
+    <updated>2024-05-27T13:20:23.089Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>内容：</p><ul><li>软件架构概述</li><li>构件技术</li></ul><h1 id="中论"><a href="#中论" class="headerlink" title="中论"></a>中论</h1><h2 id="软件架构概述"><a href="#软件架构概述" class="headerlink" title="软件架构概述"></a>软件架构概述</h2><p>软件架构：从需求分析到软件设计之间的过渡过程。</p><p>架构设计：需求分配，将满足需求的职责分配到组件上。</p><p>软件架构为软件系统提供了一个结构、行为和属性的高级抽象，由构件的描述、构件的相互作用（连接件）、指导构件集成的模式以及这些模式的约束组成。</p><p>软件架构不仅指定了系统的组织结构和拓扑结构，并显示了系统需求和构件之间的对应关系，提供了一些设计决策的基本原理。</p><p>研究软件架构的根本目的：解决好软件的复用、质量和维护问题。</p><p>软件架构设计：包括提出架构模型、产生架构设计和进行设计评审等活动。</p><p>架构设计主要关注：软件组件的结构、属性和交互作用，并通过多种视图全面描述特定系统的架构。</p><p>软件建构能够在设计变更相关容易的阶段考虑系统结构的可选方案，便于技术人员与非技术人员就软件设计进行交互，能够展现软件的结构、属性和内部交互关系。</p><p>软件架构是项目干系人进行交流的手段，明确了对系统实现的约束条件，决定了开发和维护组织的组织结构，制约着系统的质量属性。</p><p>软件架构使推理和控制的更改更加简单，有助于循序渐进的原型设计，可以作为培训的基础。</p><p>软件架构是可传递和可复用的模型，通过研究软件架构可以预测软件的质量。</p><h2 id="软件架构生命周期"><a href="#软件架构生命周期" class="headerlink" title="软件架构生命周期"></a>软件架构生命周期</h2><ol><li><p>需求分析阶段</p><p> 需求分析和SA设计面临的是不同对象，一个是问题空间，一个是解空间。从软件需求模型向SA模型的转换主要关注两个问题：如何根据需求模型构建SA模型；如何保证模型转换的可追踪性。</p></li><li><p>设计阶段</p><p> SA研究关注的最早和最多的阶段。这一阶段的SA主要研究：SA模型的描述、SA模型的设计与分析方法、对SA设计经验的总结和复用。（有关SA模型描述的研究主要分为三个层次：SA的基本概念；体系结构描述语言ADL、SA模型的多视图表示）</p></li><li><p>实现阶段</p><p> 为了有效实现SA设计向实现的转换，实现阶段的研究主要表现在以下方面：</p><ul><li>研究基于SA的开发过程支持</li><li>寻求从SA向实现过渡的途径</li><li>研究基于SA的测试技术</li></ul></li><li><p>构件组装阶段</p><p> 在SA设计模型的指导下，可复用构建的组装可以在较高层次上实现系统，并能够提高系统实现的效率。研究内容主要包括两方面</p><ul><li>如何支持可复用构件的互联</li><li>在组装过程中，如何检测并消除体系结构适配的问题。</li></ul></li><li><p>部署阶段</p><ul><li>提供高层的体系结构视图来描述部署阶段的软硬件模型</li><li>基于SA模型可以分析部署方案的质量属性，从而选择合理的部署方案</li></ul></li><li><p>后开发阶段</p><p> 软件部署安装之后的阶段。这一阶段SA研究主要围绕维、演化、复用等方面。</p><ul><li>动态软件体系结构。</li><li>体系结构恢复与重建。</li></ul></li></ol><h2 id="构件"><a href="#构件" class="headerlink" title="构件"></a>构件</h2><p>基本概念：</p><ul><li>构件是一个独立可交付的功能单元，外界通过接口访问其提供的服务</li><li>构件由一组通常需要同时部署的原子构件组成。<ul><li>一个原子构件就是一个模块儿和一组资源。</li><li>原子构件是部署、版本控制和替换的基本单位。</li></ul></li><li>构件和原子构件的区别：大多数原子构件永远都不会被单独部署，尽管可以被单独部署。大多数原子构件都属于一个构件家族，一次部署往往涉及到整个家族。</li><li>一个模块是不带单独资源的原子构件</li><li>一个单独的包被编译成多个单独的类的文件</li><li>模块是一组类和可能的非面向对象的结构体</li></ul><p>特点：</p><ul><li>独立部署单元</li><li>可作为第三方的组装单元</li><li>没有（外部的）可见状态</li></ul><p>一个构件可以包含多个类元素，但是一个类元素只能属于一个构件。</p><p>构件接口：</p><p>接口标准化是对接口中的消息的格式、模式和协议的标准化。不是将接口格式化为参数化操作的集合，而是关注输入输出的消息的标准化。</p><p>面向构件的编程（COP）</p><ul><li>多态性（可替代性）</li><li>模块封装性（高层次信息的隐藏）</li><li>后期的绑定和装载（部署的独立性）</li><li>安全性（类型和模块安全性）</li></ul><p>构件技术</p><p>利用某种编程手段，将人们关心的但又不便于让最终用户直接操作的细节进行封装，同时对各种业务逻辑规则进行了实现。国际上常用构件标准的三大流派：</p><ol><li><p>EJB：实现应用中关键的业务逻辑，创建基于构件的企业级应用程序。</p><p> 分别是：</p><ul><li>会话Bean</li><li>实体Bean</li><li>消息驱动Bean</li></ul></li><li><p>COM、DCOM、COM+</p></li><li><p>CORBA标准：主要分成三个层次</p><ul><li>对象请求代理：最底层的对象请求代理ORB，规定了分布对象的定义（接口）和语言映射，实现了对象间的通信和互操作，是分布对象系统中的“软总线”。</li><li>公共对象服务：在ORB之上定义了很多公共服务。</li><li>公共设施：最上层的公共设施则定义了组件框架，提供可直接为业务对象使用的服务，规定业务对象有效协作所需的协定规则。</li></ul></li></ol><h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><blockquote><p>俱怀逸兴壮思飞，欲上青天揽明月。</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h1>前言</h1><p>内容：</p><ul><li>软件架构概述</li><li>构件技术</li></ul><h1>中论</h1><h2 id="软件架构概述">软件架构概述</h2><p>软件架构：从需求分析到软件设计之间的过渡过程。</p><p>架构设计：需求分配，将满足需求的职责分配到组件上。</p><p>软件架构为软件系统提供了一个结构、行为和属性的高级抽象，由构件的描述、构件的相互作用（连接件）、指导构件集成的模式以及这些模式的约束组成。</p><p>软件架构不仅指定了系统的组织结构和拓扑结构，并显示了系统需求和构件之间的对应关系，提供了一些设计决策的基本原理。</p><p>研究软件架构的根本目的：解决好软件的复用、质量和维护问题。</p><p>软件架构设计：包括提出架构模型、产生架构设计和进行设计评审等活动。</p><p>架构设计主要关注：软件组件的结构、属性和交互作用，并通过多种视图全面描述特定系统的架构。</p><p>软件建构能够在设计变更相关容易的阶段考虑系统结构的可选方案，便于技术人员与非技术人员就软件设计进行交互，能够展现软件的结构、属性和内部交互关系。</p><p>软件架构是项目干系人进行交流的手段，明确了对系统实现的约束条件，决定了开发和维护组织的组织结构，制约着系统的质量属性。</p><p>软件架构使推理和控制的更改更加简单，有助于循序渐进的原型设计，可以作为培训的基础。</p><p>软件架构是可传递和可复用的模型，通过研究软件架构可以预测软件的质量。</p><h2 id="软件架构生命周期">软件架构生命周期</h2><ol><li><p>需求分析阶段</p><p>需求分析和SA设计面临的是不同对象，一个是问题空间，一个是解空间。从软件需求模型向SA模型的转换主要关注两个问题：如何根据需求模型构建SA模型；如何保证模型转换的可追踪性。</p></li><li><p>设计阶段</p><p>SA研究关注的最早和最多的阶段。这一阶段的SA主要研究：SA模型的描述、SA模型的设计与分析方法、对SA设计经验的总结和复用。（有关SA模型描述的研究主要分为三个层次：SA的基本概念；体系结构描述语言ADL、SA模型的多视图表示）</p></li><li><p>实现阶段</p><p>为了有效实现SA设计向实现的转换，实现阶段的研究主要表现在以下方面：</p><ul><li>研究基于SA的开发过程支持</li><li>寻求从SA向实现过渡的途径</li><li>研究基于SA的测试技术</li></ul></li><li><p>构件组装阶段</p><p>在SA设计模型的指导下，可复用构建的组装可以在较高层次上实现系统，并能够提高系统实现的效率。研究内容主要包括两方面</p><ul><li>如何支持可复用构件的互联</li><li>在组装过程中，如何检测并消除体系结构适配的问题。</li></ul></li><li><p>部署阶段</p><ul><li>提供高层的体系结构视图来描述部署阶段的软硬件模型</li><li>基于SA模型可以分析部署方案的质量属性，从而选择合理的部署方案</li></ul></li><li><p>后开发阶段</p><p>软件部署安装之后的阶段。这一阶段SA研究主要围绕维、演化、复用等方面。</p><ul><li>动态软件体系结构。</li><li>体系结构恢复与重建。</li></ul></li></ol><h2 id="构件">构件</h2><p>基本概念：</p><ul><li>构件是一个独立可交付的功能单元，外界通过接口访问其提供的服务</li><li>构件由一组通常需要同时部署的原子构件组成。<ul><li>一个原子构件就是一个模块儿和一组资源。</li><li>原子构件是部署、版本控制和替换的基本单位。</li></ul></li><li>构件和原子构件的区别：大多数原子构件永远都不会被单独部署，尽管可以被单独部署。大多数原子构件都属于一个构件家族，一次部署往往涉及到整个家族。</li><li>一个模块是不带单独资源的原子构件</li><li>一个单独的包被编译成多个单独的类的文件</li><li>模块是一组类和可能的非面向对象的结构体</li></ul><p>特点：</p><ul><li>独立部署单元</li><li>可作为第三方的组装单元</li><li>没有（外部的）可见状态</li></ul><p>一个构件可以包含多个类元素，但是一个类元素只能属于一个构件。</p><p>构件接口：</p><p>接口标准化是对接口中的消息的格式、模式和协议的标准化。不是将接口格式化为参数化操作的集合，而是关注输入输出的消息的标准化。</p><p>面向构件的编程（COP）</p><ul><li>多态性（可替代性）</li><li>模块封装性（高层次信息的隐藏）</li><li>后期的绑定和装载（部署的独立性）</li><li>安全性（类型和模块安全性）</li></ul><p>构件技术</p><p>利用某种编程手段，将人们关心的但又不便于让最终用户直接操作的细节进行封装，同时对各种业务逻辑规则进行了实现。国际上常用构件标准的三大流派：</p><ol><li><p>EJB：实现应用中关键的业务逻辑，创建基于构件的企业级应用程序。</p><p>分别是：</p><ul><li>会话Bean</li><li>实体Bean</li><li>消息驱动Bean</li></ul></li><li><p>COM、DCOM、COM+</p></li><li><p>CORBA标准：主要分成三个层次</p><ul><li>对象请求代理：最底层的对象请求代理ORB，规定了分布对象的定义（接口）和语言映射，实现了对象间的通信和互操作，是分布对象系统中的“软总线”。</li><li>公共对象服务：在ORB之上定义了很多公共服务。</li><li>公共设施：最上层的公共设施则定义了组件框架，提供可直接为业务对象使用的服务，规定业务对象有效协作所需的协定规则。</li></ul></li></ol><h1>后记</h1><blockquote><p>俱怀逸兴壮思飞，欲上青天揽明月。</p></blockquote>]]></content>
     
     
     <summary type="html">文老师13.1软件架构概述-构件技术</summary>
@@ -44,9 +67,9 @@
     <link href="https://jovehawking.fun/posts/1d301166.html"/>
     <id>https://jovehawking.fun/posts/1d301166.html</id>
     <published>2024-05-23T11:57:20.000Z</published>
-    <updated>2024-05-23T12:00:43.845Z</updated>
+    <updated>2024-05-27T13:20:23.085Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>内容：</p><ul><li>进度管理</li></ul><h1 id="中论"><a href="#中论" class="headerlink" title="中论"></a>中论</h1><p>略。改版以后不是重点，看看PPT看看定义、概念即可，计算不需要掌握。</p><h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><blockquote><p>世间浮云何足问，不如高卧且加餐。</p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h1>前言</h1><p>内容：</p><ul><li>进度管理</li></ul><h1>中论</h1><p>略。改版以后不是重点，看看PPT看看定义、概念即可，计算不需要掌握。</p><h1>后记</h1><blockquote><p>世间浮云何足问，不如高卧且加餐。</p></blockquote>]]></content>
     
     
     <summary type="html">文老师12项目管理</summary>
@@ -455,29 +478,6 @@ description: 文老师信息系统基础知</summary>
     <category term="软考" scheme="https://jovehawking.fun/tags/%E8%BD%AF%E8%80%83/"/>
     
     <category term="文老师" scheme="https://jovehawking.fun/tags/%E6%96%87%E8%80%81%E5%B8%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>JVM学习-调优篇（上）</title>
-    <link href="https://jovehawking.fun/posts/b9419394.html"/>
-    <id>https://jovehawking.fun/posts/b9419394.html</id>
-    <published>2024-05-01T01:57:50.000Z</published>
-    <updated>2024-05-01T10:47:51.077Z</updated>
-    
-    <content type="html"><![CDATA[<h1>前言</h1><p>视频教程：<a href="https://www.bilibili.com/video/BV1Dz4y1A7FB?p=2&amp;vd_source=85ac5ee1b07df12a44b648a8751d30f6">https://www.bilibili.com/video/BV1Dz4y1A7FB?p=2&amp;vd_source=85ac5ee1b07df12a44b648a8751d30f6</a></p><h1>相关知识点</h1><h2 id="案例篇章-OOM">案例篇章-OOM</h2><h3 id="堆溢出">堆溢出</h3><p><strong>报错信息</strong></p><p>java.lang.OutOfMemoryError: Java heap space</p><p><strong>JVAM参数配置</strong></p><p>-XX:+PrintGCDetails -XX:MetaspaceSize=64m -XX:+HeapDumpOnOutOfMemoryError  -XX:HeapDumpPath=heap/heapdump.hprof -XX:+PrintGCDateStamps -Xms200M  -Xmx200M  -Xloggc:log/gc-oomHeap.log</p><p><strong>原因及解决方案</strong></p><ul><li>原因<ul><li>代码中可能存在大对象分配</li><li>可能存在内存泄漏，导致在多次GC之后，还是无法找到一块足够大的内存容纳当前对</li></ul></li><li>解决方法<ul><li>检查是否存在大对象的分配，最有可能的是大数组分配</li><li>通过jmap命令，把堆内存dump下来，使用MAT等工具分析一下，检查是否存在内存泄漏的问题</li><li>如果没有找到明显的内存泄漏，使用 -Xmx 加大堆内存</li><li>还有一点容易被忽略，检查是否有大量的自定义的 Finalizable 对象，也有可能是框架内部提供的，考虑其存在的必要性</li></ul></li></ul><h3 id="元空间溢出">元空间溢出</h3><p><strong>报错信息</strong></p><p>java.lang.OutOfMemoryError: Metaspace</p><p><strong>参数配置</strong></p><p>-XX:+PrintGCDetails -XX:MetaspaceSize=60m -XX:MaxMetaspaceSize=60m -Xss512K -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=heap/heapdumpMeta.hprof  -XX:SurvivorRatio=8 -XX:+TraceClassLoading -XX:+TraceClassUnloading -XX:+PrintGCDateStamps  -Xms60M  -Xmx60M -Xloggc:log/gc-oomMeta.log</p><p><strong>原因及解决方案</strong></p><p>JDK8后，元空间替换了永久代，元空间使用的是本地内存</p><ul><li><p>原因</p><ul><li>运行期间生成了大量的代理类，导致方法区被撑爆，无法卸载</li></ul><ol start="2"><li>应用长时间运行，没有重启</li><li>元空间内存设置过小</li></ol></li><li><p>解决方案</p><ul><li>检查是否永久代空间或者元空间设置的过小</li></ul><ol start="2"><li>检查代码中是否存在大量的反射操作</li><li>dump之后通过mat检查是否存在大量由于反射生成的代理类</li><li>如果加载同一个代理类即可，可以创建对象以后调用对象的<code>setUseCache(true)</code>方法，</li></ol><blockquote><p>选择为true的话，使用和更新一类具有相同属性生成的类的静态缓存，而不会在同一个类文件还继续被动态加载并视为不同的类，这个其实跟类的equals()和hashCode()有关，它们是与cglib内部的class cache的key相关的。</p></blockquote></li></ul><h3 id="GC-overhead-limit-exceeded">GC overhead limit exceeded</h3><p><strong>报错信息</strong></p><p>GC overhead limit exceeded</p><p><strong>原因及解决方案</strong></p><ul><li>原因<ul><li><strong>超过98%的时间用来做GC并且回收了不到2%的堆内存时会抛出此异常</strong>，本质是一个预判性的异常，抛出该异常时系统没有真正的内存溢出。</li></ul></li><li>解决方案<ul><li>检查项目中是否有大量的死循环或有使用大内存的代码，优化代码</li><li>添加参数 <code>-XX:-UseGCOverheadLimit</code> 禁用这个检查，其实这个参数解决不了内存问题，只是把错误的信息延后，最终出现 java.lang.OutOfMemoryError: Java heap space</li><li>dump内存，检查是否存在内存泄漏，如果没有，加大内存</li></ul></li></ul><h3 id="线程溢出">线程溢出</h3><p><strong>报错信息</strong></p><p>java.lang.OutOfMemoryError : unable to create new native Thread</p><p><strong>原因及解决方案</strong></p><ul><li><p>原因</p><ul><li><p>出现这种异常，基本上都是创建了大量的线程导致的</p></li><li><p>正常情况下，在相同物理内存下，减小这个值能生成更多的线程。但是操作系统对一个进程内的线程数还是有限制的,不能无限生成,经验值在3000~5000左右</p></li><li><p>能创建的线程数的具体计算公式如下：<br>(MaxProcessMemory - JVMMemory - ReservedOsMemory) / (ThreadStackSize) = Number of threads</p><blockquote><p>MaxProcessMemory 指的是进程可寻址的最大空间<br>JVMMemory     JVM内存<br>ReservedOsMemory 保留的操作系统内存<br>ThreadStackSize   线程栈的大小</p></blockquote></li><li><p>在Java语言里， 当你创建一个线程的时候，虚拟机会在JVM内存创建一个Thread对象同时创建一个操作系统线程，而这个系统线程的内存用的不是JVMMemory，而是系统中剩下的内存(MaxProcessMemory - JVMMemory - ReservedOsMemory)。</p></li><li><p>由公式得出结论：你给JVM内存越多，那么你能创建的线程越少，越容易发生java.lang.OutOfMemoryError: unable to create new native thread</p></li></ul></li><li><p>解决方案</p><ul><li><p>如果程序中有bug，导致创建大量不需要的线程或者线程没有及时回收，那么必须解决这个bug，修改参数是不能解决问题的。</p></li><li><p>如果程序确实需要大量的线程，现有的设置不能达到要求，那么可以通过修改MaxProcessMemory，JVMMemory，ThreadStackSize这三个因素，来增加能创建的线程数。</p><ul><li>MaxProcessMemory 使用64位操作系统</li><li>JVMMemory  减少JVMMemory的分配</li><li>ThreadStackSize 减小单个线程的栈大小</li></ul><blockquote><p>经实测，在32位windows系统下较为严格遵守；64位系统下只能保证正/负相关性，甚至说相关性也不能保证。即：<br>在测试的过程中，64位操作系统下调整Xss的大小并没有对产生线程的总数产生影响，程序执行到极限的时候，操作系统会死机。无法看出效果</p></blockquote></li><li><p>线程总数也受到系统空闲内存和操作系统的限制，检查是否该系统下有此限制：</p><ul><li><p>/proc/sys/kernel/pid_max          系统最大pid值，在大型系统里可适当调大</p></li><li><p>/proc/sys/kernel/threads-max     系统允许的最大线程数</p></li><li><p>maxuserprocess（ulimit -u）   系统限制某用户下最多可以运行多少进程或线程</p></li><li><p>/proc/sys/vm/max_map_count</p><blockquote><p>max_map_count文件包含限制一个进程可以拥有的VMA(虚拟内存区域)的数量。虚拟内存区域是一个连续的虚拟地址空间区域。在进程的生命周期中，每当程序尝试在内存中映射文件，链接到共享内存段，或者分配堆空间的时候，这些区域将被创建。调优这个值将限制进程可拥有VMA的数量。限制一个进程拥有VMA的总数可能导致应用程序出错，因为当进程达到了VMA上线但又只能释放少量的内存给其他的内核进程使用时，操作系统会抛出内存不足的错误。如果你的操作系统在NORMAL区域仅占用少量的内存，那么调低这个值可以帮助释放内存给内核用。</p></blockquote></li></ul></li></ul></li></ul><h1>面试题</h1><p><strong>说到内存泄漏，问有没有碰到，内存泄漏怎么解决？（拼多多）<br>内存泄漏是怎么造成的？（拼多多、字节跳动）<br>如何理解内存泄漏问题？有哪些情况会导致内存泄露？如何解决？ (阿里)</strong></p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-    <summary type="html">JVM-OOM案例相关知识点汇总</summary>
-    
-    
-    
-    <category term="JVMinG" scheme="https://jovehawking.fun/categories/JVMinG/"/>
-    
-    
-    <category term="JVM" scheme="https://jovehawking.fun/tags/JVM/"/>
-    
-    <category term="后端开发" scheme="https://jovehawking.fun/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
