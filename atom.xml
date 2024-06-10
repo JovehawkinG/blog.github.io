@@ -6,7 +6,7 @@
   <link href="https://jovehawking.fun/atom.xml" rel="self"/>
   
   <link href="https://jovehawking.fun/"/>
-  <updated>2024-06-08T09:16:37.749Z</updated>
+  <updated>2024-06-10T04:01:55.519Z</updated>
   <id>https://jovehawking.fun/</id>
   
   <author>
@@ -15,6 +15,50 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>W-线程隔离（普通用户、VIP用户）</title>
+    <link href="https://jovehawking.fun/posts/efed3be7.html"/>
+    <id>https://jovehawking.fun/posts/efed3be7.html</id>
+    <published>2024-06-10T01:43:37.000Z</published>
+    <updated>2024-06-10T04:01:55.519Z</updated>
+    
+    <content type="html"><![CDATA[<h1>需求背景</h1><p>一个非主要功能特殊时期的高并发问题。该场景用到了parallelStream并发流提高查询速度，但是Java8的并发流线程池默认是ForkJoinPool，是全局共享的，任何用到了并发流的业务操作默认都是一个线程池。</p><p>问题：所有parallelStream业务操作都使用一个线程池就有可能互相影响。比如帮助中心查询用户权限+内容过滤都用到了parallelStream，相当于这些操作都在一个池子里。在并发的时候就有可能互相影响。</p><p>特点：非主要功能且在特殊时间（平时不咋用、平时不会集中使用）</p><h1>解决方案</h1><p>特殊账号用户、普通用户在不同的线程池中</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="keyword">void</span> <span class="title function_">test</span><span class="params">()</span> &#123;</span><br><span class="line">       List&lt;Integer&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">       <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">           list.add(i);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       list.parallelStream().forEach((i) -&gt; &#123;</span><br><span class="line">           System.out.println(Thread.currentThread().getName() + <span class="string">&quot;........XXX&quot;</span>);</span><br><span class="line">           <span class="keyword">try</span> &#123;</span><br><span class="line">               Thread.sleep(<span class="number">500000L</span>);</span><br><span class="line">           &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">               e.printStackTrace();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;);</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@Test</span></span><br><span class="line">   <span class="keyword">void</span> <span class="title function_">testPrivate</span><span class="params">()</span> &#123;</span><br><span class="line">       List&lt;Integer&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">       <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">           list.add(i);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="type">ForkJoinPool</span> <span class="variable">customThreadPool</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ForkJoinPool</span>(<span class="number">4</span>);</span><br><span class="line">       customThreadPool.submit(</span><br><span class="line">               () -&gt; list.parallelStream().forEach((i) -&gt; &#123;</span><br><span class="line">                   System.out.println(Thread.currentThread().getName() + <span class="string">&quot;........XXX&quot;</span>);</span><br><span class="line">                   <span class="keyword">try</span> &#123;</span><br><span class="line">                       Thread.sleep(<span class="number">50000L</span>);</span><br><span class="line">                   &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                       e.printStackTrace();</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;));</span><br><span class="line">       <span class="comment">// 自定义的ForkJoinPool不会使用主线程，所以需要主线程也sleep一下，方便查看控制台数据</span></span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           Thread.sleep(<span class="number">500000L</span>);</span><br><span class="line">       &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure><p>控制台输出：</p><hr><p>默认线程池输出：<img src="../image/post/image-20240610115344881.png" alt="image-20240610115344881"></p><p>自定义线程池输出：<img src="../image/post/image-20240610115356912.png" alt="image-20240610115356912"></p><hr><p>可以看到默认线程池是commonPool，自定义线程池是2，做到了同一个parallelStream线程池的隔离。</p><p><code>注意：parallelStream默认线程池主线程也参与工作，会看到main也会打印，但是自定义线程池则没有</code></p><h1>补充</h1><p>Java中的parallelStream：<a href="https://blog.csdn.net/qq_25775675/article/details/125687985">Java中的parallelStream</a></p><p>自定义parallelStream：<a href="https://developer.aliyun.com/article/898096">自定义parallelStream的threadpool -阿里云开发者社区 (aliyun.com)</a></p>]]></content>
+    
+    
+    <summary type="html">线程隔离的应用场景，普通用户、VIP用户使用功能时用户体验不同。</summary>
+    
+    
+    
+    <category term="工作inG" scheme="https://jovehawking.fun/categories/%E5%B7%A5%E4%BD%9CinG/"/>
+    
+    
+    <category term="多线程应用场景" scheme="https://jovehawking.fun/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>W-异步编排+消息队列+轮询</title>
+    <link href="https://jovehawking.fun/posts/fb4ce95d.html"/>
+    <id>https://jovehawking.fun/posts/fb4ce95d.html</id>
+    <published>2024-06-10T00:46:48.000Z</published>
+    <updated>2024-06-10T03:58:23.302Z</updated>
+    
+    <content type="html"><![CDATA[<h1>需求背景</h1><p>背景：业务需要对接中台的功能，实现根据excel文件 + 当前工程信息，得出该excel文件的相关特点，以供后续分析。</p><p>特点：高并发，中台并发量有限，需要业务端控制。</p><h1>解决方案</h1><p>采用异步编排+消息队列+轮询</p><h2 id="异步编排">异步编排</h2><blockquote><p>执行的功能主要分成三个步骤：</p><ol><li>解析excel文件，调用中台智能分析接口</li><li>进一步处理解析后的文件以及当前工程文件，处理成业务需要的形式</li><li>根据上述两步的结果，拼接返回新的结果给前端。</li></ol></blockquote><p>特点：步骤1，步骤2执行时不会相互影响，并且步骤3的结果依赖1, 2。</p><p>所以使用CompletableFuture异步编排，分别分配线程运行1 2。然后1 2 都运行完以后运行3</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">代码示例：</span><br><span class="line"></span><br><span class="line"><span class="comment">// 任务一</span></span><br><span class="line">CompletableFuture&lt;Integer&gt; future01 = CompletableFuture.supplyAsync(() -&gt; &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;任务1开始:  &quot;</span> + Thread.currentThread().getId());</span><br><span class="line">    <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">10</span> / <span class="number">4</span>;</span><br><span class="line">    System.out.println(<span class="string">&quot;任务1运行结果:  &quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;, executor);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 任务二</span></span><br><span class="line">CompletableFuture&lt;String&gt; future02 = CompletableFuture.supplyAsync(() -&gt; &#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;任务2开始:  &quot;</span> + Thread.currentThread().getId());</span><br><span class="line">    System.out.println(<span class="string">&quot;任务2执行结果:  &quot;</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line">&#125;, executor);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*future01.runAfterBothAsync(future02,()-&gt;&#123;</span></span><br><span class="line"><span class="comment">            System.out.println(&quot;任务3开始&quot;);</span></span><br><span class="line"><span class="comment">        &#125;,executor);*/</span>      <span class="comment">//不能获取前两者的返回值,不能更改返回值</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* future01.thenAcceptBothAsync(future02,(f1,f2)-&gt;&#123;</span></span><br><span class="line"><span class="comment">            //void accept(T t, U u);</span></span><br><span class="line"><span class="comment">            System.out.println(&quot;任务3开始...之前的结果:&quot;+f1 +&quot;---&gt;&quot;+f2);</span></span><br><span class="line"><span class="comment">        &#125;,executor);*/</span>      <span class="comment">//可以获取前两者的返回指,不能更改返回指</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*CompletableFuture&lt;String&gt; future = future01.thenCombineAsync(future02, (f1, f2) -&gt; &#123;</span></span><br><span class="line"><span class="comment">            //R apply(T t, U u);</span></span><br><span class="line"><span class="comment">            return f1 + &quot;: &quot; + f2 + &quot;-&gt;HaHa&quot;;</span></span><br><span class="line"><span class="comment">        &#125;, executor);*/</span><span class="comment">//可以获取前两者的返回指,可以更改返回指</span></span><br><span class="line">System.out.println(<span class="string">&quot;结束.........&quot;</span>+future.get());</span><br></pre></td></tr></table></figure><h2 id="消息队列-轮询">消息队列 + 轮询</h2><blockquote><p>针对高并发场景，多个用户同一时间点击其功能，缓解中台的压力并且保证用户执行以后不会无效。</p><p>因为服务是集群的，所以如果用线程池，每个线程池只控制该服务器。比如线程池最大线程数10，如果集群机器数是10，发送给中台的请求可能到10*10=100条。</p></blockquote><p>消息队列：保证用户请求（消息）都能到中台，中台把解析结果存放在redis中，这边轮询查找。</p><h1>补充</h1><h2 id="AI相关概念：">AI相关概念：</h2><p>prompt：给AI的提示</p><p>Token：模型用来表示自然语言文本的基本单位，可以直观的理解为“字”或“词”；通常一个中文词语、一个英文单词、一个标点符号位一个Token。（任何大模型都有单次提问token的限制，所以题目和选项数不能太多，太多的话需要分批生成<code>不过该项目不涉及到这个问题，不是大模型问答</code>）</p>]]></content>
+    
+    
+    <summary type="html">对接中台AI分解时遇到的问题</summary>
+    
+    
+    
+    <category term="工作inG" scheme="https://jovehawking.fun/categories/%E5%B7%A5%E4%BD%9CinG/"/>
+    
+    
+    <category term="需求开发" scheme="https://jovehawking.fun/tags/%E9%9C%80%E6%B1%82%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="AI" scheme="https://jovehawking.fun/tags/AI/"/>
+    
+  </entry>
   
   <entry>
     <title>软考-15软件架构的演化和维护</title>
@@ -418,52 +462,6 @@
     
     
     <summary type="html">文老师9.3端口扫描-安全体系-网络安全技术和协议</summary>
-    
-    
-    
-    <category term="软考inG" scheme="https://jovehawking.fun/categories/%E8%BD%AF%E8%80%83inG/"/>
-    
-    
-    <category term="软考" scheme="https://jovehawking.fun/tags/%E8%BD%AF%E8%80%83/"/>
-    
-    <category term="文老师" scheme="https://jovehawking.fun/tags/%E6%96%87%E8%80%81%E5%B8%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>软考-9.2信息摘要-PKI-访问控制-DOS-欺骗技术</title>
-    <link href="https://jovehawking.fun/posts/16c48eed.html"/>
-    <id>https://jovehawking.fun/posts/16c48eed.html</id>
-    <published>2024-05-07T12:06:55.000Z</published>
-    <updated>2024-05-08T14:05:05.163Z</updated>
-    
-    <content type="html"><![CDATA[<h1>前言</h1><p>内容：</p><ul><li><p>信息摘要</p></li><li><p>数字签名</p></li><li><p>公钥基础设施PKI</p></li><li><p>访问控制</p></li><li><p>信息安全的抗攻击技术</p></li></ul><h1>中论</h1><h2 id="信息摘要">信息摘要</h2><p>信息摘要就是一段数据的特征信息，当数据发生了改变，信息摘要也会发生改变。</p><p>特点：无论数据多长，都会产生固定长度的信息摘要；不同内容的数据产生不同的信息摘要；只能由数据生成信息摘要，但是不能由信息摘要还原数据。</p><p>算法：MD5、SHA-1</p><h2 id="数字签名">数字签名</h2><p>唯一标识一个发送方。</p><p>过程：发送者发送数据时，使用发送者的私钥进行加密，接受者使用发送者的公钥解密，这样就能唯一确定发送方，也是数字签名的过程，但无法保证机密性。</p><h2 id="公钥基础设施PKI">公钥基础设施PKI</h2><p>以不对称密钥加密技术为基础，以数据机密性、完整性、身份认证、行为不可抵赖为安全目的，来实施和提供安全服务的具有普适性的安全基础设施。</p><ol><li>数字证书：有一个可信任的权威机构签署的信息集合</li><li>签证机构CA：负责签发证书、管理、撤销证书。任何机构可以用CA的公钥验证该证书的合法性。</li></ol><h2 id="访问控制">访问控制</h2><p>主体依据某些控制策略或权限对客体本身或是其资源进行的不同授权访问。包括三个要素：主体、客体和控制策略</p><p>方法：</p><ol><li>访问控制矩阵：通过矩阵形式表示访问控制规则和授权用户权限的方法</li><li>访问控制表：即访问控制矩阵的列（去掉空的单元格）</li><li>能力表：即访问控制矩阵的行（去掉空的单元格）</li><li>授权关系表：即去掉空单元格的访问控制矩阵</li></ol><h2 id="信息安全的抗攻击技术">信息安全的抗攻击技术</h2><p><strong>拒绝服务攻击（DOS攻击）：</strong></p><ul><li>内部用户：长时间占用系统内存、CPU处理时间，从而引起服务器无法接受其他请求服务</li><li>外部黑客：占用网络连接</li></ul><p>攻击模式：消耗资源、破坏或更改配置信息、物理破坏或改变网络部件、利用服务程序中的处理错误使服务失效</p><p>分布式拒绝服务DDOS：攻击者首先入侵并控制一些计算机，然后控制这些计算机同时向一个特定的目标发起拒绝服务攻击，这种攻击克服了传统DOS攻击受网络资源的限制和隐蔽性两大缺点。</p><p>防御方式：</p><ul><li>加强对数据包的特征识别</li><li>设置防火墙监视本地主机端口的使用情况</li><li>对通信数据量进行统计也可获得有关攻击系统的位置和数量信息</li><li>尽可能的修正已经发现的问题和系统漏洞</li></ul><hr><p><strong>基于TCP/IP的拒绝服务攻击模式</strong></p><ul><li>同步包风暴（SYN Flooding）：利用TCP协议发送大量伪造的TCP连接请求，但不建立连接。消耗目标主机的资源</li><li>ICMP攻击：比如“Ping of Death”攻击利用操作系统规定的ICMP数据包的最大尺寸不超过64KB这一规定，使目标主机TCP/IP堆栈崩溃</li><li>SNMP攻击：重定向通信流，改变通信流数据包的优先级甚至断开通信。</li></ul><p>防御方法：</p><ul><li>同步包风暴（SYN Flooding）：修改注册表</li><li>ICMP攻击：修改注册表</li><li>SNMP攻击：基于网络的漏洞扫描、基于主机的漏洞扫描</li></ul><hr><p><strong>ARP欺骗</strong></p><p>正常ARP：主机A想知道局域网内主机B的MAC地址，就会广播发送ARP请求分组，局域网内主机都会收到，但只有B解析后知道是请求自己的MAC地址，所以B会响应A的广播。A收到响应分组以后，建立一个B的IP地址和MAC地址映射。</p><p>欺骗原理：攻击者C模拟返回格式，将自己的MAC地址发送给A，A将C的MAC和IP对应，这样A实际上给C发的消息</p><p>防范措施：</p><ul><li>固化ARP表</li><li>使用ARP服务器</li><li>采用双向绑定的方式</li><li>ARP防护软件–ARPGuard</li></ul><p><strong>DNS欺骗</strong></p><p>冒充域名解析服务器，把查询的IP地址设置为攻击者的IP地址，即用户访问的是攻击者的地址。</p><p>防范措施：</p><ul><li>被动监听检测：通过旁路监听的方式，如果一定的时间间隔内，一个请求对应两个或两个以上结果不同的应答包，则怀疑收到的了DOS欺骗</li><li>虚假报文探测：采用主动发送探测包的手段来检测，即像一个非DNS服务器发送请求包，正常不会收到应答包</li></ul><p><strong>IP欺骗</strong></p><p>原理：</p><ol><li>攻击者首先使主机B的网络暂时瘫痪，以免对攻击造成干扰</li><li>连接目标机A的某个端口猜测ISN基值以及增加规律</li><li>把源址地址伪装成被冒充主机B，发送带有SYN标志的数据段请求连接</li><li>等待目标机A发送SYN+ACK包给瘫痪主机</li><li>再次冒充主机B向主机A发送ACK，此时发送的数据段带有预测的目标机的ISN+1</li><li>攻击者和A建立连接，发送命令请求</li></ol><p>防范：</p><ul><li>删除UNIX中所有/etc/hosts.equiv、$HOME/.rhosts文件，修改/etc/inetd.conf文件</li><li>设置防火墙过滤来自外部但是信源地址却是内部IP的报文</li></ul><h2 id="端口扫描">端口扫描</h2><p>端口扫描就是尝试与目标主机的某些端口建立连接，如果目标端口有回复，则说明该端口开放。（为活动端口）</p><p>扫描原理种类</p><ul><li>全TCP连接：与目标计算机建立标准的TCP连接</li><li>半打开式扫描（SYN扫描）：向目标端口发送SYN数据段，如果目标计算机回应SYN=1 ACK=1，这说明端口是活动的；如果回应RST，则是死端口</li><li>FIN扫描：依靠发送FIN来判断。发送一个FIN=1的报文到一个关闭的端口时，端口会被丢掉并返回一个RST报文；如果发送到一个活动的端口，则不会返回报文。</li><li>第三方扫描：“代理扫描”。利用第三方主机代替入侵者进行扫描。</li></ul><p><strong>强化TCP/IP堆栈以抵御拒绝服务攻击</strong></p><p>见信息安全的抗攻击技术。</p><h2 id="信息安全的保证体系和评估方法">信息安全的保证体系和评估方法</h2><p>计算机系统安全保护能力的五个等级</p><ul><li>第一级 用户自主保护级。自主访问控制</li><li>第二级 系统审计保护级。自主访问控制的基础上控制访问权限扩散</li><li>第三级 安全标记保护级。强制访问控制</li><li>第四级 结构化保护级。强制访问控制，将第三级中的访问控制扩散到所有主体和客体</li><li>第五级 访问验证保护级。访问控制的粒度是单个用户</li></ul><p><strong>评估方法</strong></p><p>风险评估的基本要素：脆弱性、资产、威胁、风险和安全措施</p><h2 id="网络安全技术">网络安全技术</h2><p>**防火墙：**内网和外网之间增加的一道安全防护措施</p><ul><li><p>网络级防火墙：层次低，但效率高</p></li><li><p>应用级防火墙：层次高，但效率低</p></li></ul><p><strong>入侵检测系统IDS</strong></p><p>原理：监控当前系统/用户行为，使用入侵检测系统分析引擎进行分析</p><p>特点：是一个监听设备，没有跨接在任何链路上，无须网络流量流经就可以工作。但是需要挂接在所关注流量的必经的链路上。</p><ul><li>尽可能靠近攻击源</li><li>尽可能靠近受保护资源</li></ul><p><strong>入侵防御系统IPS</strong></p><p>特点：能够提前发现入侵行为，在其还没有进入安全网络之前就进行防御</p><p><strong>杀毒软件</strong></p><p>用于检测和解决计算机病毒</p><p><strong>蜜罐系统</strong></p><p>伪造一个蜜罐网络引用黑客攻击</p><h2 id="网络攻击和威胁（重点）">网络攻击和威胁（重点）</h2><p><img src="../image/post/image-20240508220046019.png" alt="image-20240508220046019"></p><h2 id="网络安全协议">网络安全协议</h2><p><img src="../image/post/image-20240508220215992.png" alt="image-20240508220215992"></p><p>SSL协议：安全套接字协议；HTTPS中的S，端口号为443</p><p>SSH协议：安全外壳协议，加强Telnet/FTP安全的传输协议</p><p>SET协议：安全电子交易协议，应用于B2C模型保障支付的信息安全，协议复杂；安全性高</p><p>Kerberos协议：网络身份认证协议。基于信任的第三方，提供开放型网络中进行身份认证的方法。</p><p>PGP协议：使用RSA公钥证书进行身份认证，使用IDEA进行数据加密，使用MD5进行数据完整性校验。</p><h1>后记</h1><blockquote><p>有勇气断舍离，就会匹配更好的人和事。</p></blockquote>]]></content>
-    
-    
-    <summary type="html">文老师9.2信息摘要-PKI-访问控制-DOS-欺骗技术</summary>
-    
-    
-    
-    <category term="软考inG" scheme="https://jovehawking.fun/categories/%E8%BD%AF%E8%80%83inG/"/>
-    
-    
-    <category term="软考" scheme="https://jovehawking.fun/tags/%E8%BD%AF%E8%80%83/"/>
-    
-    <category term="文老师" scheme="https://jovehawking.fun/tags/%E6%96%87%E8%80%81%E5%B8%88/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>软考-9.1信息安全基础-加密技术</title>
-    <link href="https://jovehawking.fun/posts/25d1f602.html"/>
-    <id>https://jovehawking.fun/posts/25d1f602.html</id>
-    <published>2024-05-06T12:11:44.000Z</published>
-    <updated>2024-05-06T12:59:44.890Z</updated>
-    
-    <content type="html"><![CDATA[<h1>前言</h1><p>内容：</p><ul><li><p>信息安全基础知识（重点）</p></li><li><p>信息安全系统的组成框架（了解）</p></li><li><p>信息安全技术-加密技术（了解）</p></li></ul><h1>中论</h1><h2 id="信息安全基础知识">信息安全基础知识</h2><p><strong>信息安全的基本要素</strong></p><ul><li>机密性：确保信息不暴露给未授权的实体或进程</li><li>完整性：只有得到许可才能修改数据，并且能够判别出数据是否已被篡改</li><li>可用性：得到授权的实体在需要时可访问数据，攻击者不能占用所有资源而阻碍授权者的工作</li><li>可控性：可以控制授权范围内的信息流向以及行为方式</li><li>可审查性：对出现的信息安全问题提供调查的依据和手段</li></ul><p><strong>信息安全的范围</strong></p><ul><li>设备安全：首要问题，是信息安全的物质基础，包括3个方面：设备的稳定性、可靠性、可用性</li><li>数据安全：采取措施确保数据免受未授权的泄露、篡改和毁坏，包括3个方面：数据的秘密性、完整性、可用性</li><li>内容安全：是信息安全在政治、法律、道德层次上的要求，包括3个方面：信息内容政治上的健康、符合国家法律法规、符合道德规范</li><li>行为安全：最终通过安全的行为提供给用户，包括3个方面：行为的秘密性、完整性、可控性</li></ul><p><strong>信息的存储安全</strong></p><ul><li>信息使用的安全</li><li>系统安装监控</li><li>计算机病毒防治</li><li>数据的加密</li><li>防止非法的攻击</li></ul><h2 id="信息安全系统的组成框架">信息安全系统的组成框架</h2><p>从实现技术上看：</p><ol><li>基础安全设备：包括密码芯片、加密卡、身份识别卡</li><li>计算机网络安全：信息在网络传输中的安全防范。包括防火墙及访问控制、加密传输、认证、数字签名、摘要、VPN等</li><li>操作系统安全：操作系统的无错误配置、无漏洞、无后门、无特洛伊木马</li><li>数据库安全：分为数据库管理系统安全和数据库应用系统安全。包括物理数据库的完整性、逻辑数据库的完整性、元素安全性、身份认证等</li><li>终端安全设备：包括电话密码机、传真密码机、异步数据密码机</li></ol><h2 id="信息安全技术-加密技术">信息安全技术-加密技术</h2><p><strong>加密技术</strong></p><ul><li>对称加密技术：数据的加密、解密的密钥是相同的，属于不公开密钥加密算法。<ul><li>缺点：加密强度不高，密钥分发困难。</li><li>优点：加密速度快，适合大数据加密。一般只有56位</li><li>常见算法：DES、3DES、AES、RC-5、IDEA</li></ul></li><li>非对称加密技术：数据的加密、解密的密钥不同，分为公钥和私钥。是公开密钥加密算法。公钥、私钥均为接受者配置，发送者使用公钥加密，接受者使用私钥解密，公钥可以明文发送给任何人，私钥不可。<ul><li>缺点：加密速度慢，无法保证数据完整性</li><li>优点：安全性高，不易破解。一般有1024位</li><li>常见算法：RSA、ECC、Elgamal、Rabin、D-H</li></ul></li><li>数字信封：对称加密技术和非对称加密技术的组合。使用<code>对称加密技术</code>加密<code>信息内容</code>，使用<code>非对称加密技术</code>加密<code>对称加密的密钥</code>。</li></ul><h1>后记</h1><blockquote><p>有趣的事物，不应该分享给敷衍的人。</p></blockquote>]]></content>
-    
-    
-    <summary type="html">文老师9.1信息安全基础-加密技术</summary>
     
     
     
