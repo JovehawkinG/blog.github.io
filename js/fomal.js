@@ -3166,7 +3166,7 @@ let waiBizhi = "url(https://api.ixiaowai.cn/gqapi/gqapi.php)";
 // 博天随机
 let btstu = "url(http://api.btstu.cn/sjbz/?lx=suiji)";
 // tuapi 动漫
-// let tuapi = "url(https://tuapi.eees.cc/api.php?category=dongman)";
+// let tuapi = "url(https://api.btstu.cn/sjbz/api.php?lx=dongman&format=images)";
 // unsplash随机 https://source.unsplash.com/random/1920x1080/daily (weekly)
 let unsplash = "url(https://source.unsplash.com/random/1920x1080/)";
 
