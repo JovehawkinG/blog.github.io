@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jovehawking.fun/posts/57902a6a.html</loc>
+    
+    <lastmod>2024-07-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jovehawking.fun/social/link/index.html</loc>
     
     <lastmod>2024-07-07</lastmod>
@@ -14,15 +23,6 @@
     <loc>https://jovehawking.fun/box/nav/index.html</loc>
     
     <lastmod>2024-07-07</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jovehawking.fun/posts/57902a6a.html</loc>
-    
-    <lastmod>2024-07-06</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
