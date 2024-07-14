@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>W-子组件调整element#message的高度</title>
+      <link href="/posts/87d480c0.html"/>
+      <url>/posts/87d480c0.html</url>
+      
+        <content type="html"><![CDATA[<h1>手搓RPC</h1><h2 id="序列化、反序列化问题">序列化、反序列化问题</h2><p>RPC远程调用时，需要将对象进行序列化/反序列化操作。</p><p>比如RPC框架的response、request对象需要传递给服务提供方/服务消费方。所以需要对RPC的response、request对象进行序列化、反序列化操作。</p><p>实现方式：</p><ul><li>第三方序列化框架<ul><li>推荐。比较方便，但是该项目不需要太复杂，所以暂不使用。</li></ul></li><li>继承Serializable接口<ul><li><code>Serializable</code>接口本身不包含任何方法或字段，它是一个标记接口（marker interface）</li><li>具体的序列化方法主要通过<code>ObjectOutputStream</code>和<code>ObjectInputStream</code>这两个类来完成</li><li>如果更好的控制序列化过程，还需要使用<code>writeObject()</code>和<code>readObject()</code>方法</li><li>每一个继承该接口，同时想要精细化控制的类都需要实现<code>writeObject()</code>和<code>readObject()</code>方法</li></ul></li><li>自定义一个Serializer序列化器<ul><li>自己定义序列化、反序列化方法，将控制序列化的方法都写在序列化器中，不需要每个类自己写一遍。</li></ul></li></ul><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> org.example.serializer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">JDKSerializer</span> <span class="keyword">implements</span> <span class="title class_">Serializer</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="type">byte</span>[] serialize(T obj) <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">ByteArrayOutputStream</span> <span class="variable">byteArrayOutputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ByteArrayOutputStream</span>();</span><br><span class="line">        <span class="type">ObjectOutputStream</span> <span class="variable">objectOutputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span>(byteArrayOutputStream);</span><br><span class="line">        objectOutputStream.writeObject(obj);</span><br><span class="line">        objectOutputStream.close();</span><br><span class="line">        <span class="keyword">return</span> byteArrayOutputStream.toByteArray();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; T <span class="title function_">deserialize</span><span class="params">(<span class="type">byte</span>[] bytes, Class&lt;T&gt; clazz)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">        <span class="type">ByteArrayInputStream</span> <span class="variable">byteArrayInputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ByteArrayInputStream</span>(bytes);</span><br><span class="line">        <span class="type">ObjectInputStream</span> <span class="variable">objectInputStream</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectInputStream</span>(byteArrayInputStream);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> (T) objectInputStream.readObject();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            objectInputStream.close();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>注意：</p><ul><li>流的<code>flush方法</code>和<code>close方法</code></li></ul><blockquote><ul><li><p><code>flush()</code>方法的主要作用是立即将缓冲区中的所有数据写入到目标输出流中。这保证了即使在程序异常终止的情况下，已经调用过的方法所要写入的数据能够被保存下来。</p></li><li><p><code>close()</code>方法不仅会调用<code>flush()</code>方法来清空缓冲区，还会关闭底层的输出流，释放与之关联的所有系统资源。一旦流被关闭，就不能再进行任何读写操作，否则会抛出<code>IOException</code>。</p></li></ul><p><strong>使用建议</strong></p><p>在实际编程中，推荐的做法是在完成所有写入操作后，总是调用<code>close()</code>方法来关闭流。由于<code>close()</code>方法内部会调用<code>flush()</code>，所以通常不需要显式地调用<code>flush()</code>，除非有特定的需求（例如，在多次写入之间需要立即同步数据）。</p></blockquote><h2 id="消费方发起调用的方法">消费方发起调用的方法</h2><p>rpc本质就是远程调用，比如服务提供方A，消费方B、C…，无论消费方有多少，获取提供方A的某个数据所需要的请求代码都是相同的。所以可以采用代理的方法（代理本来要用作方法的增强，在这里直接调用相同的代码逻辑）。</p><p>缺点：这样实现的接口<code>UserService</code>必须在common包里定义，提供方实现这个接口才可以。因为消费方也需要。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工作inG </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 手搓RPC </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>W-子组件调整element#message的高度</title>
+      <link href="/posts/87d480c0.html"/>
+      <url>/posts/87d480c0.html</url>
+      
+        <content type="html"><![CDATA[<h1>子组件调整element#message的高度</h1><h2 id="message组件">message组件</h2><p>Element UI 的 <code>Message</code> 组件默认是在全局范围内显示消息提示，可以在子组件中使用它，但是Message是在全局注册，所以位置参数都是针对整个app.vue（页面来显示的）</p><h2 id="调整高度">调整高度</h2><p><code>message</code>有属性offset，可以用来调整高度。所以需要每次this.$message时，给offset属性赋值即可。</p><h2 id="计算子组件高度">计算子组件高度</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">updateComponentPosition() &#123;</span><br><span class="line">    // myComponent是子组件</span><br><span class="line">    const componentRect = this.$refs.myComponent.getBoundingClientRect();</span><br><span class="line">    // 如果使用该vue文件自身，需要用getElementById或者getElementByClassName获取到该vue文件的dom元素</span><br><span class="line">const componentRect = document.getElementBy(&#x27;myElement&#x27;);</span><br><span class="line"></span><br><span class="line">    this.componentTopPosition = componentRect.top;</span><br><span class="line">    this.componentHeight = componentRect.height;</span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">this.$message(&#123;</span><br><span class="line">    ...</span><br><span class="line">    // 此时位置在子组件的最上方</span><br><span class="line">    offset: this.componentTopPosition + this.componentHeight</span><br><span class="line">    ...</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure><p><code>getBoundingClientRect()</code> 是一个 DOM 元素的方法，用于获取一个元素的大小及其相对于视口的位置。这个方法返回一个对象，该对象包含了元素的 top、right、bottom、left、width 和 height 属性，这些属性都是相对于视口的坐标系。</p><h3 id="返回的对象属性说明">返回的对象属性说明</h3><ul><li><code>top</code>: 元素上边界到视口顶部的距离。</li><li><code>right</code>: 视口右侧到元素右边界的距离（不是元素到视口右边界的距离）。</li><li><code>bottom</code>: 视口底部到元素下边界的距离（不是元素到视口底边界的距离）。</li><li><code>left</code>: 元素左边界到视口左侧的距离。</li><li><code>width</code>: 元素的宽度。</li><li><code>height</code>: 元素的高度。</li></ul><h3 id="注意事项">注意事项</h3><ul><li><code>getBoundingClientRect()</code> 返回的值是相对于视口的，而不是相对于文档的。这意味着如果页面有滚动，返回的坐标会考虑到滚动的影响。</li><li>方法返回的坐标是浮点数，即使元素的样式是整数。</li><li>如果元素不在视口内（例如，完全被其他元素遮挡或在折叠面板后面），<code>getBoundingClientRect()</code> 仍然可以返回准确的坐标信息。</li><li>在移动设备上，坐标可能因缩放而发生变化。</li></ul><blockquote><p>视口（Viewport）：</p><p>指的是用户通过浏览器或其他客户端软件查看网页内容时可见的区域。视口的概念尤其重要于响应式设计和移动设备的网页布局中，因为它直接影响了网页内容如何适应不同的屏幕尺寸和设备特性。</p><p>视口可以分为几种类型，每种类型在网页布局和响应式设计中扮演着不同的角色：</p><ol><li><strong>布局视口（Layout Viewport）</strong>:</li></ol><ul><li>在早期的网页设计中，布局视口通常指的是未缩放的浏览器窗口大小。然而，在移动设备上，为了兼容传统桌面网页的宽度，布局视口经常被设置为一个固定的宽度（如980px或1024px），这使得网页可以按预期显示，而不必做额外的缩放。</li></ul><ol start="2"><li><strong>视觉视口（Visual Viewport）</strong>:</li></ol><ul><li>视觉视口是用户当前在屏幕上实际看到的网页部分。当用户缩放页面时，视觉视口的大小会改变，但布局视口的大小通常保持不变。这意味着即使用户缩放页面，网页的布局计算仍然基于布局视口的大小。</li></ul><ol start="3"><li><strong>理想视口（Ideal Viewport）</strong>:</li></ol><ul><li>理想视口是为了使网页在移动设备上有最佳浏览体验而设定的视口大小。理想视口的宽度通常等于设备的实际屏幕宽度（以CSS像素计），这样网页可以完全填充屏幕，无需水平滚动。</li></ul><ol start="4"><li><strong>设备视口（Device Viewport）</strong>:</li></ol><ul><li>设备视口是指设备本身的屏幕尺寸，包括其物理像素尺寸和设备像素比（DPR）。设备视口对于确定网页在设备上的最终呈现至关重要。</li></ul></blockquote><h3 id="使用场景">使用场景</h3><ul><li>动态调整元素位置或大小。</li><li>检测元素是否在视口内，用于懒加载图片等。</li><li>实现拖拽效果或碰撞检测。</li><li>计算元素之间的距离或重叠部分。</li></ul><h3 id="浏览器兼容性">浏览器兼容性</h3><p><code>getBoundingClientRect()</code> 方法在现代浏览器中（包括 IE9+）广泛支持，但在一些较老的浏览器中可能不可用，这时可以使用 <code>getBoundingClientRectNoScroll</code> 作为兼容方案，不过这种方法在现代开发中已经很少使用。</p><p>总之，<code>getBoundingClientRect()</code> 是一个非常实用的方法，可以用于获取元素的精确位置和尺寸信息，对于实现响应式设计、动态布局和其他交互效果都非常有用。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 工作inG </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 组件 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>DataBase-Redis初级学习</title>
       <link href="/posts/57902a6a.html"/>
       <url>/posts/57902a6a.html</url>
